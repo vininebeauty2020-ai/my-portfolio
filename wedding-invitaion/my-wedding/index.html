@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>우리 결혼합니다</title>
+    <!-- GSAP 라이브러리 불러오기 (무료 애니메이션 도구) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <style>
+        /* 모바일 청첩장 기본 틀 잡기 */
+        body {
+            margin: 0; background-color: #f9f9f9; 
+            font-family: 'Nanum Myeongjo', serif; /* 고급스러운 명조체 느낌 */
+            color: #333; overflow-x: hidden;
+        }
+        .mobile-container {
+            max-width: 500px; /* PC로 봐도 모바일 크기 유지 */
+            margin: 0 auto; background-color: #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+        }
+        
+        /* 각 섹션 디자인 */
+        section {
+            padding: 80px 20px; text-align: center;
+            min-height: 60vh; display: flex; flex-direction: column; justify-content: center;
+        }
+        .cover { background-color: #eae6e1; }
+        h1 { font-size: 1.8rem; font-weight: normal; margin-bottom: 10px; }
+        .date { color: #888; font-size: 0.9rem; letter-spacing: 2px; }
+        
+        /* 애니메이션을 위한 클래스 */
+        .fade-up { opacity: 0; transform: translateY(50px); }
+    </style>
+</head>
+<body>
+
+<div class="mobile-container">
+    
+    <!-- 메인 커버 섹션 -->
+    <section class="cover fade-up">
+        <p class="date">2026. 10. 24. SAT</p>
+        <h1>신랑이름 & 신부이름</h1>
+        <p>우리, 결혼합니다</p>
+        <!-- 포토샵으로 작업한 메인 사진을 넣을 자리 -->
+        <!-- <img src="메인사진경로.jpg" style="width:100%; margin-top:30px;"> -->
+    </section>
+
+    <!-- 인사말 섹션 -->
+    <section class="intro fade-up">
+        <h2>Invitation</h2>
+        <p style="line-height: 2;">
+            서로가 마주보며 다져온 사랑을<br>
+            이제 함께 한 곳을 바라보며 걸어갈 수 있게<br>
+            큰 묶음으로 묶고자 합니다.<br>
+            그 시작의 자리에 오셔서 축복해 주시면<br>
+            더 없는 기쁨으로 간직하겠습니다.
+        </p>
+    </section>
+
+    <!-- 갤러리 섹션 (미리캔버스/포토샵 작업물 활용) -->
+    <section class="gallery fade-up">
+        <h2>Gallery</h2>
+        <div style="width: 100%; height: 300px; background-color: #eee; line-height: 300px; color: #aaa;">
+            포토샵으로 보정한 예쁜 웨딩 사진이 들어갈 공간
+        </div>
+    </section>
+    
+</div>
+
+<!-- 스크롤 애니메이션 작동 스크립트 -->
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // .fade-up 클래스를 가진 모든 요소가 스크롤할 때 스르륵 나타나게 설정
+    gsap.utils.toArray('.fade-up').forEach(function(element) {
+        gsap.to(element, {
+            scrollTrigger: {
+                trigger: element,
+                start: "top 80%", // 화면의 80% 지점에 도달하면 시작
+            },
+            opacity: 1,
+            y: 0,
+            duration: 1.5,
+            ease: "power2.out"
+        });
+    });
+</script>
+
+</body>
+</html>
