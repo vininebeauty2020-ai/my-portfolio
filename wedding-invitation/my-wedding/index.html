@@ -5,74 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Tozzi Studio | Premium Invitation</title>
     
-    <!-- 폰트 및 아이콘 -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Noto+Serif+KR:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 
     <style>
         /* === [기본 설정] === */
         :root { --main-bg: #FAF9F6; --text-color: #2c2c2c; --point-color: #8b8378; }
-        body { margin: 0; background-color: #e5e5e5; color: var(--text-color); font-family: 'Noto Serif KR', serif; overflow-x: hidden; }
-        .wrap { max-width: 500px; margin: 0 auto; background: var(--main-bg); box-shadow: 0 0 30px rgba(0,0,0,0.05); position: relative; }
+        body { margin: 0; background-color: #111; color: var(--text-color); font-family: 'Noto Serif KR', serif; overflow-x: hidden; }
+        .wrap { max-width: 500px; margin: 0 auto; background: var(--main-bg); position: relative; box-shadow: 0 0 30px rgba(0,0,0,0.5); padding-bottom: 80px; }
         section { padding: 90px 20px; text-align: center; position: relative; }
         h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; letter-spacing: 0.1em; color: var(--point-color); margin-bottom: 40px; font-weight: 400; text-transform: uppercase; }
         p { font-size: 0.95rem; line-height: 2.2; font-weight: 300; color: #555; }
         
         .fade-up { opacity: 0; transform: translateY(40px); }
 
+        /* === [BGM 버튼 (우측 상단 고정)] === */
+        .bgm-btn { position: fixed; top: 20px; right: 20px; width: 45px; height: 45px; background: rgba(255,255,255,0.8); backdrop-filter: blur(5px); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.2rem; color: var(--point-color); z-index: 9000; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s; }
+        .spin { animation: spin 4s linear infinite; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
         /* === [메인 포스터] === */
-        .hero { height: 100vh; padding: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; background: #ddd; position: relative; overflow: hidden; }
+        .hero { height: 100vh; padding: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden; }
         .hero-text { position: relative; z-index: 10; color: #fff; text-shadow: 0 2px 15px rgba(0,0,0,0.3); margin-top: 50vh; }
         .hero h1 { font-size: 2.2rem; margin: 5px 0; font-weight: 400; letter-spacing: 5px; }
 
-        /* === [트렌디 갤러리] === */
-        .swiper { width: 100%; padding-bottom: 40px; }
-        .swiper-slide { width: 80%; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .swiper-slide img { width: 100%; height: 500px; object-fit: cover; display: block; }
-        .btn-gallery-grid { background: transparent; border: 1px solid var(--point-color); color: var(--point-color); padding: 12px 30px; font-family: inherit; font-size: 0.9rem; cursor: pointer; margin-top: 20px; transition: 0.3s; }
-        .btn-gallery-grid:hover { background: var(--point-color); color: #fff; }
+        /* === [하이엔드 갤러리 (가로 스크롤)] === */
+        .gallery-wrap { overflow: hidden; padding: 0; background: #111; color: #fff; height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+        .gallery-wrap h2 { color: #fff; margin-bottom: 20px; }
+        .gallery-scroll { display: flex; width: max-content; padding-left: 20px; padding-right: 20px; gap: 20px; }
+        .gallery-item { width: 300px; height: 450px; flex-shrink: 0; overflow: hidden; border-radius: 4px; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* === [송금 & 계좌 (아코디언)] === */
-        .account-wrap { text-align: left; margin-bottom: 20px; border-bottom: 1px solid #ddd; }
-        .account-title { display: flex; justify-content: space-between; padding: 15px 5px; font-weight: 600; cursor: pointer; }
-        .account-content { display: none; padding: 10px 5px 20px; }
-        .account-item { background: #fff; border: 1px solid #eee; padding: 15px; margin-bottom: 10px; border-radius: 6px; font-size: 0.9rem; }
-        .account-info { margin-bottom: 10px; }
-        .account-name { font-weight: 600; margin-right: 10px; }
-        .btn-group { display: flex; gap: 5px; }
-        .btn-copy { flex: 1; padding: 8px; border: 1px solid #ddd; background: #fafafa; cursor: pointer; font-family: inherit; }
-        .btn-kakao { flex: 1; padding: 8px; border: none; background: #FEE500; color: #000; font-weight: 600; cursor: pointer; font-family: inherit; display: flex; justify-content: center; align-items: center; gap: 5px; }
+        /* === [RSVP 플로팅 버튼 (하단 고정)] === */
+        .floating-rsvp { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 450px; padding: 18px; background: var(--text-color); color: #fff; border: none; font-size: 1rem; letter-spacing: 2px; cursor: pointer; z-index: 9000; border-radius: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); font-family: 'Cormorant Garamond', serif; font-weight: 600; text-transform: uppercase; }
 
-        /* === [팝업 모달 공통 (RSVP / 갤러리 그리드)] === */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; display: none; opacity: 0; transition: opacity 0.3s; justify-content: center; align-items: center; }
-        .modal-content { background: var(--main-bg); width: 90%; max-width: 450px; max-height: 80vh; overflow-y: auto; padding: 30px 20px; position: relative; border-radius: 12px; }
-        .btn-close { position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #555; }
+        /* === [모달 팝업] === */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(5px); z-index: 9999; display: none; opacity: 0; transition: opacity 0.4s; justify-content: center; align-items: center; }
+        .modal-content { background: var(--main-bg); width: 90%; max-width: 400px; padding: 40px 20px; position: relative; border-radius: 8px; box-sizing: border-box; }
+        .btn-close { position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 2rem; cursor: pointer; color: #999; }
         
-        /* 갤러리 모아보기 그리드 */
-        .grid-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; }
-        .grid-item { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; }
-
-        /* RSVP 폼 스타일 */
-        .btn-rsvp-open { width: 80%; padding: 18px; background: var(--text-color); color: #fff; border: none; font-size: 1rem; letter-spacing: 2px; cursor: pointer; margin-top: 20px; }
         input, select, textarea { width: 100%; box-sizing: border-box; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; background: #fff; }
         textarea { height: 100px; resize: none; }
-        .btn-submit { width: 100%; padding: 15px; background: var(--point-color); color: #fff; border: none; font-size: 1rem; cursor: pointer; }
+        .btn-submit { width: 100%; padding: 18px; background: var(--point-color); color: #fff; border: none; font-size: 1rem; cursor: pointer; letter-spacing: 1px; }
     </style>
 </head>
 <body>
 
+<audio id="bgm" src="./img/bgm.mp3" loop></audio>
+
+<div class="bgm-btn" id="bgm-btn" onclick="toggleBGM()">
+    <i class="ri-music-2-line"></i>
+</div>
+
 <div class="wrap">
     <section class="hero">
-        <img src="./img/main.jpg" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; filter:brightness(0.7); z-index:0;" alt="메인 사진">
-        
+        <img src="./img/main.jpg" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; filter:brightness(0.75); z-index:0;" alt="메인 사진">
         <div class="hero-text fade-up">
             <h1 style="font-family: 'Cormorant Garamond', serif;">MINJUN & SONGI</h1>
-            <p style="color:#fff; font-weight:300; font-size:1rem;">2026. 10. 24. SAT PM 12:00</p>
+            <p style="font-weight:300; font-size:1rem;">2026. 10. 24. SAT PM 12:00</p>
         </div>
     </section>
 
-    <!-- 2. 초대 -->
     <section id="intro">
         <h2 class="fade-up">Invitation</h2>
         <p class="fade-up">
@@ -83,121 +76,29 @@
         </p>
     </section>
 
-    <!-- 3. 트렌디 갤러리 (스와이프 + 모아보기) -->
-    <section id="gallery">
-        <h2 class="fade-up">Gallery</h2>
-        
-        <!-- 스와이프 슬라이드 -->
-        <div class="swiper gallerySwiper fade-up">
-            <div class="swiper-wrapper">
-                <!-- 사진 12장을 이렇게 추가하세요 -->
-                <div class="swiper-slide"><div style="width:100%; height:500px; background:#d0d0d0;">사진 1</div></div>
-                <div class="swiper-slide"><div style="width:100%; height:500px; background:#b0b0b0;">사진 2</div></div>
-                <div class="swiper-slide"><div style="width:100%; height:500px; background:#909090;">사진 3</div></div>
-                <div class="swiper-slide"><div style="width:100%; height:500px; background:#a0a0a0;">사진 4</div></div>
+    <div class="gallery-wrap" id="gallery-pin">
+        <h2 style="text-align:center;">Gallery</h2>
+        <div class="gallery-scroll" id="gallery-scroll">
+            <div class="gallery-item"><img src="./img/1.jpg" alt="사진1"></div>
+            <div class="gallery-item"><img src="./img/2.jpg" alt="사진2"></div>
+            <div class="gallery-item"><img src="./img/3.jpg" alt="사진3"></div>
+            <div class="gallery-item"><img src="./img/4.jpg" alt="사진4"></div>
+            <div class="gallery-item"><img src="./img/5.jpg" alt="사진5"></div>
+            <div class="gallery-item"><img src="./img/6.jpg" alt="사진6"></div>
             </div>
-            <div class="swiper-pagination"></div>
-        </div>
-
-        <!-- 전체보기 버튼 -->
-        <button class="btn-gallery-grid fade-up" onclick="openGridModal()">사진 모아보기 <i class="ri-grid-fill"></i></button>
-    </section>
-
-    <!-- 4. 송금 (6인 계좌 + 카카오페이) -->
-    <section id="account">
-        <h2 class="fade-up">마음 전하실 곳</h2>
-        <p class="fade-up" style="margin-bottom:30px;">참석이 어려우신 분들을 위해<br>계좌번호를 기재하였습니다.</p>
-        
-        <div class="fade-up">
-            <!-- 신랑측 아코디언 -->
-            <div class="account-wrap">
-                <div class="account-title" onclick="toggleAccount('groom-acc')">
-                    <span>신랑측 계좌번호</span> <i class="ri-arrow-down-s-line"></i>
-                </div>
-                <div class="account-content" id="groom-acc">
-                    <!-- 신랑 -->
-                    <div class="account-item">
-                        <div class="account-info"><span class="account-name">신랑 도민준</span> 농협 123-4567-8901</div>
-                        <div class="btn-group">
-                            <button class="btn-copy" onclick="copyText('12345678901')">계좌 복사</button>
-                            <button class="btn-kakao" onclick="window.open('https://qr.kakaopay.com/본인코드')"><i class="ri-kakao-talk-fill"></i> 카카오페이</button>
-                        </div>
-                    </div>
-                    <!-- 신랑 부 -->
-                    <div class="account-item">
-                        <div class="account-info"><span class="account-name">혼주(부) 도기환</span> 국민 111-2222-3333</div>
-                        <div class="btn-group">
-                            <button class="btn-copy" onclick="copyText('11122223333')">계좌 복사</button>
-                            <button class="btn-kakao" onclick="window.open('https://qr.kakaopay.com/아버지코드')"><i class="ri-kakao-talk-fill"></i> 송금하기</button>
-                        </div>
-                    </div>
-                    <!-- 신랑 모 -->
-                    <div class="account-item">
-                        <div class="account-info"><span class="account-name">혼주(모) 김미숙</span> 신한 444-5555-6666</div>
-                        <div class="btn-group">
-                            <button class="btn-copy" onclick="copyText('44455556666')">계좌 복사</button>
-                            <button class="btn-kakao" onclick="window.open('https://qr.kakaopay.com/어머니코드')"><i class="ri-kakao-talk-fill"></i> 송금하기</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 신부측 아코디언 -->
-            <div class="account-wrap">
-                <div class="account-title" onclick="toggleAccount('bride-acc')">
-                    <span>신부측 계좌번호</span> <i class="ri-arrow-down-s-line"></i>
-                </div>
-                <div class="account-content" id="bride-acc">
-                    <!-- 위 신랑측과 동일한 구조로 신부, 신부부, 신부모 작성 -->
-                    <div class="account-item">
-                        <div class="account-info"><span class="account-name">신부 천송이</span> 기업 777-8888-9999</div>
-                        <div class="btn-group">
-                            <button class="btn-copy" onclick="copyText('77788889999')">계좌 복사</button>
-                            <button class="btn-kakao" onclick="window.open('https://qr.kakaopay.com/신부코드')"><i class="ri-kakao-talk-fill"></i> 카카오페이</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. RSVP 팝업 호출 버튼 -->
-    <section id="rsvp-section" style="padding: 100px 20px; background:#111; color:#fff;">
-        <h2 class="fade-up" style="color:#fff;">R.S.V.P</h2>
-        <p class="fade-up" style="color:#999;">원활한 예식 준비를 위해<br>참석 여부를 전달해 주시면 감사하겠습니다.</p>
-        <button class="btn-rsvp-open fade-up" onclick="openRSVPModal()">참석 의사 전달하기</button>
-    </section>
-    
-    <footer style="padding:40px 20px; text-align:center; font-size:0.8rem; color:#999;">
-        <p>Designed by Nomad Tozzi</p>
-    </footer>
-
-</div> <!-- //wrap -->
-
-<!-- ================= 모달 팝업 영역 ================= -->
-
-<!-- 1. 갤러리 모아보기 모달 -->
-<div class="modal-overlay" id="gridModal">
-    <div class="modal-content" style="max-width: 600px;">
-        <button class="btn-close" onclick="closeGridModal()">&times;</button>
-        <h3 style="text-align:center; font-family:'Cormorant Garamond', serif;">All Photos</h3>
-        <div class="grid-container">
-            <!-- 12장 썸네일 -->
-            <div style="background:#ccc; aspect-ratio:1;"></div>
-            <div style="background:#bbb; aspect-ratio:1;"></div>
-            <div style="background:#aaa; aspect-ratio:1;"></div>
-            <div style="background:#999; aspect-ratio:1;"></div>
-            <div style="background:#888; aspect-ratio:1;"></div>
-            <div style="background:#777; aspect-ratio:1;"></div>
-        </div>
+        <p style="text-align:center; color:#666; font-size:0.8rem; margin-top:20px;">스크롤하여 사진을 확인하세요 &rarr;</p>
     </div>
-</div>
 
-<!-- 2. RSVP 방명록 모달 -->
+    <section style="height: 50vh; display:flex; align-items:center; justify-content:center;">
+        <h2 class="fade-up" style="margin:0;">See You Soon.</h2>
+    </section>
+
+</div> <button class="floating-rsvp" onclick="openRSVPModal()">R.S.V.P 작성하기</button>
+
 <div class="modal-overlay" id="rsvpModal">
     <div class="modal-content">
         <button class="btn-close" onclick="closeRSVPModal()">&times;</button>
-        <h3 style="text-align:center; color:var(--point-color); margin-bottom:20px;">R.S.V.P</h3>
+        <h2 style="margin-top:0; color:var(--point-color);">R.S.V.P</h2>
         <form id="gform">
             <input type="text" name="name" placeholder="성함" required>
             <select name="attendance" required>
@@ -206,17 +107,14 @@
                 <option value="참석 (식사안함)">참석 (식사안함)</option>
                 <option value="마음으로 축하">마음으로 축하</option>
             </select>
-            <input type="number" name="companion" placeholder="동행 인원 (본인 제외, 숫자만)">
             <textarea name="message" placeholder="축하의 메시지를 남겨주세요"></textarea>
             <button type="submit" class="btn-submit">메시지 남기기</button>
         </form>
     </div>
 </div>
 
-<!-- ================= 스크립트 영역 ================= -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
 <script>
     // 1. 에르메스풍 스크롤 등장 애니메이션
@@ -228,56 +126,50 @@
         });
     });
 
-    // 2. 갤러리 스와이프 (공간감이 느껴지는 슬라이드)
-    new Swiper(".gallerySwiper", {
-        slidesPerView: 1.2,
-        centeredSlides: true,
-        spaceBetween: 20,
-        grabCursor: true,
-        pagination: { el: ".swiper-pagination", clickable: true },
-        loop: true
-    });
-
-    // 3. 계좌번호 아코디언 토글
-    function toggleAccount(id) {
-        const content = document.getElementById(id);
-        if(content.style.display === "block") {
-            content.style.display = "none";
-        } else {
-            content.style.display = "block";
-        }
-    }
-
-    // 4. 복사 기능
-    function copyText(text) {
-        navigator.clipboard.writeText(text);
-        alert("계좌번호가 복사되었습니다.");
-    }
-
-    // 5. 모달 제어 (RSVP, 갤러리 그리드)
-    const rsvpModal = document.getElementById('rsvpModal');
-    const gridModal = document.getElementById('gridModal');
-
-    function openRSVPModal() { rsvpModal.style.display = 'flex'; setTimeout(() => rsvpModal.style.opacity = 1, 10); }
-    function closeRSVPModal() { rsvpModal.style.opacity = 0; setTimeout(() => rsvpModal.style.display = 'none', 300); }
+    // 2. ★ 트렌디 가로 스크롤 애니메이션 (갤러리) ★
+    const galleryScroll = document.getElementById("gallery-scroll");
+    const galleryPin = document.getElementById("gallery-pin");
     
-    function openGridModal() { gridModal.style.display = 'flex'; setTimeout(() => gridModal.style.opacity = 1, 10); }
-    function closeGridModal() { gridModal.style.opacity = 0; setTimeout(() => gridModal.style.display = 'none', 300); }
-
-    // 6. 구글 시트 전송 세팅 (이전 단계에서 만든 URL을 여기에 넣으세요)
-    const scriptURL = '여기에_구글스크립트_URL을_넣으세요'; 
-    const form = document.forms['gform'];
-
-    form.addEventListener('submit', e => {
-        e.preventDefault();
-        alert("메시지를 전송 중입니다...");
-        // URL이 세팅되면 활성화
-        /*
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => { alert("성공적으로 전달되었습니다."); closeRSVPModal(); form.reset(); })
-            .catch(error => console.error('Error!', error.message))
-        */
+    // 화면에 갤러리 섹션이 꽉 차면 고정시키고(가로로 스크롤 됨) 다 끝나면 다시 세로 스크롤
+    gsap.to(galleryScroll, {
+        x: () => -(galleryScroll.scrollWidth - window.innerWidth),
+        ease: "none",
+        scrollTrigger: {
+            trigger: galleryPin,
+            pin: true,
+            scrub: 1, // 스크롤을 챠라락~ 부드럽게 따라오게 만드는 마법의 수치
+            end: () => "+=" + (galleryScroll.scrollWidth - window.innerWidth)
+        }
     });
+
+    // 3. RSVP 모달 제어
+    const rsvpModal = document.getElementById('rsvpModal');
+    function openRSVPModal() { 
+        rsvpModal.style.display = 'flex'; 
+        setTimeout(() => rsvpModal.style.opacity = 1, 10); 
+    }
+    function closeRSVPModal() { 
+        rsvpModal.style.opacity = 0; 
+        setTimeout(() => rsvpModal.style.display = 'none', 400); 
+    }
+
+    // 4. BGM 컨트롤러 (재생/일시정지)
+    const bgm = document.getElementById('bgm');
+    const bgmBtn = document.getElementById('bgm-btn');
+    let isPlaying = false;
+
+    function toggleBGM() {
+        if (isPlaying) {
+            bgm.pause();
+            bgmBtn.classList.remove('spin');
+            bgmBtn.innerHTML = '<i class="ri-music-2-line"></i>';
+        } else {
+            bgm.play();
+            bgmBtn.classList.add('spin');
+            bgmBtn.innerHTML = '<i class="ri-pause-line"></i>';
+        }
+        isPlaying = !isPlaying;
+    }
 </script>
 
 </body>
