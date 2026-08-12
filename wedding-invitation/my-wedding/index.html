@@ -36,22 +36,13 @@
         .hero-text { position: relative; z-index: 10; color: #fff; text-shadow: 0 2px 15px rgba(0,0,0,0.3); margin-top: 50vh; }
         .hero h1 { font-size: 2.2rem; margin: 5px 0; font-weight: 400; letter-spacing: 5px; }
 
-        /* === [세로 룩북 갤러리 (접기 기능)] === */
-        .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); margin-bottom: 30px; }
-        .grid-item { width: 100%; aspect-ratio: 3/4; overflow: hidden; border-radius: 4px; background: #333; cursor: pointer; }
-        .grid-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        /* === [인라인 스와이프 갤러리] === */
+        .inline-swiper { width: 100%; aspect-ratio: 3/4; overflow: hidden; border-radius: 4px; background: #333; position: relative; margin-bottom: 15px; }
+        .inline-swiper .swiper-slide { display: flex; justify-content: center; align-items: center; }
+        /* pointer-events: none을 통해 클릭(확대) 이벤트를 원천 차단합니다 */
+        .inline-swiper img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
         
-        .gallery-grid.collapsed { grid-template-columns: repeat(4, 1fr); gap: 5px; }
-        .gallery-grid.collapsed .grid-item { aspect-ratio: 1/1; }
-        
-        .btn-outline { background: transparent; border: 1px solid var(--point-color); color: var(--point-color); padding: 15px 30px; font-family: inherit; font-size: 0.95rem; cursor: pointer; transition: 0.3s; width: 80%; border-radius: 30px; margin-top: 10px; }
-        
-        /* === [갤러리 풀스크린 스와이퍼 모달] === */
-        #photoModal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 9999; display: none; opacity: 0; transition: opacity 0.3s; flex-direction: column; }
-        #photoModal .btn-close { position: absolute; top: 20px; right: 20px; color: #fff; font-size: 2rem; z-index: 100; cursor: pointer; background: none; border: none; }
-        .fullscreen-swiper { width: 100%; height: 100%; }
-        .fullscreen-swiper .swiper-slide { display: flex; justify-content: center; align-items: center; }
-        .fullscreen-swiper img { max-width: 100%; max-height: 80vh; object-fit: contain; pointer-events: none; }
+        .swiper-custom-pagination { text-align: center; font-size: 0.95rem; font-weight: 400; color: #888; letter-spacing: 2px; margin-top: 15px; }
 
         /* === [지도/송금/기타 요소들] === */
         .info-box { text-align: left; background: #fff; border: 1px solid #eaeaea; padding: 25px 20px; margin-bottom: 15px; border-radius: 4px; color: #333;}
@@ -143,24 +134,25 @@
             </div>
         </div>
     </section>
-
-    <!-- 4. 트렌디 갤러리 (사진 20장 룩북 + 클릭 풀스크린 연동) -->
+<!-- 4. 트렌디 갤러리 (슬라이드 스와이프 형식) -->
     <section id="gallery">
         <h2 class="fade-up">Gallery</h2>
-        <p class="fade-up" style="font-size:0.8rem; color:#888; margin-bottom:20px;">사진을 누르시면 크게 볼 수 있습니다.</p>
+        <p class="fade-up" style="font-size:0.8rem; color:#888; margin-bottom:20px;">좌우로 스와이프하여 사진을 확인하세요.</p>
         
-        <div class="gallery-grid" id="gallery-grid">
-            <div class="grid-item fade-up" onclick="openPhotoModal(0)"><img src="./img/1.jpg" alt="1"></div>
-            <div class="grid-item fade-up" onclick="openPhotoModal(1)"><img src="./img/2.jpg" alt="2"></div>
-            <div class="grid-item fade-up" onclick="openPhotoModal(2)"><img src="./img/3.jpg" alt="3"></div>
-            <div class="grid-item fade-up" onclick="openPhotoModal(3)"><img src="./img/4.jpg" alt="4"></div>
-            <div class="grid-item fade-up" onclick="openPhotoModal(4)"><img src="./img/5.jpg" alt="5"></div>
-            <div class="grid-item fade-up" onclick="openPhotoModal(5)"><img src="./img/6.jpg" alt="6"></div>
-            <div class="grid-item fade-up" onclick="openPhotoModal(6)"><img src="./img/7.jpg" alt="7"></div>
-            <div class="grid-item fade-up" onclick="openPhotoModal(7)"><img src="./img/8.jpg" alt="8"></div>
-            <!-- 필요에 따라 20번까지 복사해서 사용하세요 -->
+        <!-- 스와이퍼 갤러리 영역 -->
+        <div class="swiper inline-swiper fade-up">
+            <div class="swiper-wrapper">
+                <!-- 이미지 30장을 아래 형식에 맞춰 넣어주세요 -->
+                <div class="swiper-slide"><img src="./img/1.jpg" alt="1"></div>
+                <div class="swiper-slide"><img src="./img/2.jpg" alt="2"></div>
+                <div class="swiper-slide"><img src="./img/3.jpg" alt="3"></div>
+                <div class="swiper-slide"><img src="./img/4.jpg" alt="4"></div>
+                <div class="swiper-slide"><img src="./img/5.jpg" alt="5"></div>
+                <!-- ... 필요한 만큼 추가 ... -->
+            </div>
         </div>
-        <button class="btn-outline fade-up" id="btn-collapse" onclick="collapseGallery()">사진 접고 식장 정보 보기 <i class="ri-arrow-down-line"></i></button>
+        <!-- 하단 <1/30> 표시 영역 -->
+        <div class="swiper-custom-pagination fade-up"></div>
     </section>
 
     <!-- 5. 오시는 길 (지도 -> 교통 -> 식당 순서) -->
@@ -248,18 +240,6 @@
 <!-- 하단 플로팅 RSVP 호출 버튼 -->
 <button class="floating-rsvp" onclick="openRSVPModal()">R.S.V.P & 방명록 작성하기</button>
 
-<!-- ================= [모달 영역 1] 갤러리 풀스크린 (스와이퍼 연동) ================= -->
-<div id="photoModal">
-    <button class="btn-close" onclick="closePhotoModal()"><i class="ri-close-line"></i></button>
-    <div class="swiper fullscreen-swiper">
-        <div class="swiper-wrapper" id="swiper-wrapper">
-            <!-- 자바스크립트가 자동으로 갤러리의 사진들을 여기에 복사해 줍니다. -->
-        </div>
-        <!-- 좌우 화살표 버튼 추가 -->
-        <div class="swiper-button-next" style="color:#fff;"></div>
-        <div class="swiper-button-prev" style="color:#fff;"></div>
-    </div>
-</div>
 
 <!-- ================= [모달 영역 2] RSVP 및 방명록 작성 폼 ================= -->
 <!-- ★ 이 팝업 기능을 끄고 싶다면 window.addEventListener 부분의 주석을 설정하세요 -->
@@ -337,44 +317,23 @@
         });
     }
 
-    // 3. 사진 접기 기능
-    function collapseGallery() {
-        const grid = document.getElementById('gallery-grid');
-        const btn = document.getElementById('btn-collapse');
-        const locationSec = document.getElementById('location');
-
-        if (!grid.classList.contains('collapsed')) {
-            grid.classList.add('collapsed');
-            btn.innerHTML = '사진 크게 보기 <i class="ri-arrow-up-line"></i>';
-            setTimeout(() => {
-                ScrollTrigger.refresh();
-                locationSec.scrollIntoView({ behavior: 'smooth' });
-            }, 300);
-        } else {
-            grid.classList.remove('collapsed');
-            btn.innerHTML = '사진 접고 식장 정보 보기 <i class="ri-arrow-down-line"></i>';
-            setTimeout(() => ScrollTrigger.refresh(), 300);
-        }
-    }
-
-    // 4. 풀스크린 갤러리 모달 (Swiper 연동)
-    let photoSwiper;
+    // 3. 인라인 갤러리 슬라이더 (Swiper) 세팅
+    let inlineSwiper;
     window.addEventListener('DOMContentLoaded', () => {
-        const gridItems = document.querySelectorAll('.grid-item img');
-        const swiperWrapper = document.getElementById('swiper-wrapper');
-        
-        gridItems.forEach(img => {
-            const slide = document.createElement('div');
-            slide.className = 'swiper-slide';
-            slide.innerHTML = `<img src="${img.src}" alt="갤러리 사진">`;
-            swiperWrapper.appendChild(slide);
-        });
-
-        photoSwiper = new Swiper('.fullscreen-swiper', {
-            loop: true,
-            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
+        inlineSwiper = new Swiper('.inline-swiper', {
+            loop: false, // 끝에서 다시 처음으로 안 돌아가게 (원하면 true로 변경)
+            pagination: {
+                el: '.swiper-custom-pagination',
+                type: 'custom',
+                renderCustom: function (swiper, current, total) {
+                    // 요청하신 <1/30> 형태의 커스텀 페이지네이션
+                    return '&lt;' + current + '/' + total + '&gt;';
+                }
+            }
         });
     });
+
+    // 기존의 collapseGallery(), openPhotoModal(), closePhotoModal() 함수는 모두 삭제합니다.
 
     function openPhotoModal(index) {
         const modal = document.getElementById('photoModal');
