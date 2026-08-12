@@ -27,9 +27,8 @@
         @keyframes spin { 100% { transform: rotate(360deg); } }
 
         /* === [초기 접속 BGM 시작 안내 팝업] === */
-        #start-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(17,17,17,0.95); z-index: 99999; display: flex; flex-direction: column; justify-content: center; align-items: center; cursor: pointer; color: #fff; transition: opacity 0.5s; }
-        .start-text { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; letter-spacing: 2px; margin-bottom: 20px; animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { opacity: 0.5; } 50% { opacity: 1; } 100% { opacity: 0.5; } }
+        #start-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 99999; display: flex; flex-direction: column; justify-content: center; align-items: center; cursor: pointer; color: #fff; transition: opacity 0.5s; }
+        /* 기존 rgba 어두운 배경색을 지우고 기본 검은색 바탕으로 변경 (이미지가 덮어버림) */
 
         /* === [메인 포스터] === */
         .hero { height: 100vh; padding: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden; }
@@ -93,19 +92,17 @@
 
 <!-- 접속 유도 화면 (모바일 오디오 정책 우회용) -->
 <div id="start-overlay" onclick="startInvitation()">
+    <img src="./img/open.gif" alt="청첩장 열기 배경" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:-1; filter:brightness(0.7);">
+    
     <div class="start-text">Tap to Open</div>
-    <div style="font-size:0.9rem; font-weight:300; color:#aaa;">화면을 터치하시면 초대장이 열립니다.</div>
+    <div style="font-size:0.9rem; font-weight:300; color:#fff; text-shadow: 0 1px 3px rgba(0,0,0,0.8);">화면을 터치하시면 초대장이 열립니다.</div>
 </div>
 
 <div class="wrap" id="main-wrap" style="display:none;">
     
     <!-- 1. 메인 -->
     <section class="hero">
-        <img src="./img/main.jpg" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; filter:brightness(0.75); z-index:0;" alt="메인 사진">
-        <div class="hero-text fade-up">
-            <h1 style="font-family: 'Cormorant Garamond', serif;">YURAK & HAEBIN</h1>
-            <p style="font-weight:300; font-size:1rem;">2026. 10. 24. SAT PM 12:00</p>
-        </div>
+        <img src="./img/main.gif" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0;" alt="메인 청첩장 애니메이션">
     </section>
 
     <!-- 2. 초대 문구 -->
@@ -153,7 +150,6 @@
                 <div class="swiper-slide"><img src="./img/8.jpg" alt="8"></div>
                 <div class="swiper-slide"><img src="./img/9.jpg" alt="9"></div>
                 <div class="swiper-slide"><img src="./img/10.jpg" alt="10"></div>
-                <div class="swiper-slide"><img src="./img/11.jpg" alt="11"></div>
                 <div class="swiper-slide"><img src="./img/12.jpg" alt="12"></div>
                 <div class="swiper-slide"><img src="./img/13.jpg" alt="13"></div>
                 <div class="swiper-slide"><img src="./img/14.jpg" alt="14"></div>
@@ -348,7 +344,7 @@
     let inlineSwiper;
     window.addEventListener('DOMContentLoaded', () => {
         inlineSwiper = new Swiper('.inline-swiper', {
-            loop: false, // 끝에서 다시 처음으로 안 돌아가게 (원하면 true로 변경)
+            loop: true, // 끝에서 다시 처음으로 안 돌아가게 (원하면 true로 변경)
             pagination: {
                 el: '.swiper-custom-pagination',
                 type: 'custom',
