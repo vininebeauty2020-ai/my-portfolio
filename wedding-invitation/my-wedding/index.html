@@ -387,15 +387,15 @@
         alert("복사되었습니다: " + text);
     }
 
-    // 6. RSVP 팝업 제어
-    const rsvpModal = document.getElementById('rsvpModal');
-    function openRSVPModal() { rsvpModal.style.display = 'flex'; setTimeout(() => rsvpModal.style.opacity = 1, 10); }
-    function closeRSVPModal() { rsvpModal.style.opacity = 0; setTimeout(() => rsvpModal.style.display = 'none', 400); }
+    // // 6. RSVP 팝업 제어
+    // const rsvpModal = document.getElementById('rsvpModal');
+    // function openRSVPModal() { rsvpModal.style.display = 'flex'; setTimeout(() => rsvpModal.style.opacity = 1, 10); }
+    // function closeRSVPModal() { rsvpModal.style.opacity = 0; setTimeout(() => rsvpModal.style.display = 'none', 400); }
 
 </script>
 
 <!-- 카카오맵 API 연동 스크립트 -->
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=여기에_발급받은_앱키를_넣으세요&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8d75c909b1a880fd946d7962742be972&libraries=services"></script>
 <script>
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
         mapOption = {
