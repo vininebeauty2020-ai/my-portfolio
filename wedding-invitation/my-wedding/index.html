@@ -95,7 +95,7 @@
     <img src="./img/open.gif" alt="청첩장 열기 배경" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:-1; filter:brightness(0.7);">
     
     <div class="start-text">Tap to Open</div>
-    <div style="font-size:0.9rem; font-weight:300; color:#000; text-shadow: 0 1px 3px rgba(0,0,0,0.8);">화면을 터치하시면 초대장이 열립니다.</div>
+    <div style="font-size:0.9rem; font-weight:300; color:#fff; text-shadow: 0 1px 3px rgba(0,0,0,0.8);">화면을 터치하시면 초대장이 열립니다.</div>
 </div>
 
 <div class="wrap" id="main-wrap" style="display:none;">
@@ -111,7 +111,6 @@
         <br class="fade-up" style="color:#000;">
             서로를 향한 따뜻한 믿음으로,<br>
             두 사람이 이제 온전한 하나가 되려 합니다.<br>
-            <br>
             평생을 함께하자는 진실한 서약을 하는 날<br>
             그 시작의 자리에 소중한 분들을 모십니다.<br>
             따뜻한 마음으로 함께해주시면 감사하겠습니다.<br>
@@ -165,9 +164,7 @@
                 <div class="swiper-slide"><img src="./img/22.jpg" alt="22"></div>
                 <div class="swiper-slide"><img src="./img/23.jpg" alt="23"></div>
                 <div class="swiper-slide"><img src="./img/24.jpg" alt="24"></div>
-                <div class="swiper-slide"><img src="./img/25.jpg" alt="25"></div>
-
-                
+                <div class="swiper-slide"><img src="./img/25.jpg" alt="25"></div>       
 
                 <!-- ... 필요한 만큼 추가 ... -->
             </div>
@@ -177,25 +174,36 @@
     </section>
 
     <!-- 5. 오시는 길 (지도 -> 교통 -> 식당 순서) -->
-    <section class="light-section" id="location">
-        <h2 class="fade-up">Location</h2>
-        <div class="fade-up" style="margin-bottom: 30px;">
-            <p style="font-weight:600; font-size:1.2rem; color:#111; margin-bottom:5px;">대구고산 왕국회관 13:30</p>
-            <p style="margin-top:0; color:#333;">대구광역시 수성구 시지로 50-5</p>
-            <div style="width:100%; height:250px; background:#ddd; margin:20px 0; border-radius:4px;"><img src="./img/map.jpg" style="width:100%; height:100%; object-fit:cover; border-radius:4px;" alt="약도"></div>
-            <button class="btn-copy" style="width:100%;" onclick="copyText('대구광역시 수성구 시지로 50-5')">주소 복사하기</button>
+<section class="light-section" id="location">
+    <h2 class="fade-up">Location</h2>
+    <div class="fade-up" style="margin-bottom: 30px;">
+        <p style="font-weight:600; font-size:1.2rem; color:#111; margin-bottom:5px;">대구고산 왕국회관 13:30</p>
+        <p style="margin-top:0; color:#333;">대구광역시 수성구 시지로 50-5</p>
+        
+        <!-- 움직이는 카카오맵 영역 -->
+        <div id="map" style="width:100%; height:250px; background:#ddd; margin:20px 0; border-radius:4px;"></div>
+        
+        <!-- 지도 앱 바로가기 버튼 3종 (나란히 배치) -->
+        <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+            <a href="https://map.kakao.com/link/search/대구광역시 수성구 시지로 50-5" target="_blank" style="flex: 1; text-align: center; text-decoration: none; background-color: #FEE500; color: #000; padding: 12px 0; border-radius: 4px; font-weight: 600; font-size: 0.9rem;">카카오맵</a>
+            <a href="https://map.naver.com/v5/search/대구광역시 수성구 시지로 50-5" target="_blank" style="flex: 1; text-align: center; text-decoration: none; background-color: #03C75A; color: #fff; padding: 12px 0; border-radius: 4px; font-weight: 600; font-size: 0.9rem;">네이버맵</a>
+            <a href="tmap://search?name=대구광역시 수성구 시지로 50-5" style="flex: 1; text-align: center; text-decoration: none; background-color: #111111; color: #fff; padding: 12px 0; border-radius: 4px; font-weight: 600; font-size: 0.9rem;">티맵</a>
         </div>
 
-        <div class="info-box fade-up">
-            <div class="info-title"><i class="ri-subway-line"></i>대중교통 이용 시</div>
-            <p class="info-desc">지하철: 2호선 신매역 2번 출구 (도보 9분)<br>버스: 고산2동행정복지센터 정류장 하차 (도보 9분) <br>이용가능한 버스차량: 100, 100-1, 309, 349, 399, 509, 724, 937, 990, 수성2, 급행10</p>
-        </div>
+        <!-- 주소 복사 버튼 -->
+        <button class="btn-copy" style="width:100%; padding: 12px 0; border: 1px solid #ddd; background-color: #fff; color: #333; border-radius: 4px; font-weight: 500; cursor: pointer;" onclick="copyText('대구광역시 수성구 시지로 50-5')">주소 복사하기</button>
+    </div>
 
-        <div class="info-box fade-up">
-            <div class="info-title"><i class="ri-restaurant-line"></i> 피로연(식당) 안내</div>
-            <p class="info-desc">채담은<br>주소: 대구 수성구 노변로 75-4<br>이용 시간: 11:30 ~ 13:30 (축의대는 식당에 비치될 예정입니다)</p>
-        </div>
-    </section>
+    <div class="info-box fade-up">
+        <div class="info-title"><i class="ri-subway-line"></i>대중교통 이용 시</div>
+        <p class="info-desc">지하철: 2호선 신매역 2번 출구 (도보 9분)<br>버스: 고산2동행정복지센터 정류장 하차 (도보 9분) <br>이용가능한 버스차량: 100, 100-1, 309, 349, 399, 509, 724, 937, 990, 수성2, 급행10</p>
+    </div>
+
+    <div class="info-box fade-up">
+        <div class="info-title"><i class="ri-restaurant-line"></i> 피로연(식당) 안내</div>
+        <p class="info-desc">채담은<br>주소: 대구 수성구 노변로 75-4<br>이용 시간: 11:30 ~ 13:30 (축의대는 식당에 비치될 예정입니다)</p>
+    </div>
+</section>
 
     <!-- 6. 마음 전하실 곳 -->
     <section class="light-section" id="account" style="padding-top: 20px;">
@@ -384,6 +392,39 @@
     function openRSVPModal() { rsvpModal.style.display = 'flex'; setTimeout(() => rsvpModal.style.opacity = 1, 10); }
     function closeRSVPModal() { rsvpModal.style.opacity = 0; setTimeout(() => rsvpModal.style.display = 'none', 400); }
 
+</script>
+
+<!-- 카카오맵 API 연동 스크립트 -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=여기에_발급받은_앱키를_넣으세요&libraries=services"></script>
+<script>
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+        mapOption = {
+            center: new kakao.maps.LatLng(33.450701, 126.570667), // 임시 중심좌표
+            level: 3 // 지도의 확대 레벨
+        };  
+
+    // 지도를 생성합니다    
+    var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+    // 주소-좌표 변환 객체를 생성합니다
+    var geocoder = new kakao.maps.services.Geocoder();
+
+    // 주소로 좌표를 검색합니다
+    geocoder.addressSearch('대구광역시 수성구 시지로 50-5', function(result, status) {
+        // 정상적으로 검색이 완료됐으면 
+         if (status === kakao.maps.services.Status.OK) {
+            var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+            // 결과값으로 받은 위치를 마커로 표시합니다
+            var marker = new kakao.maps.Marker({
+                map: map,
+                position: coords
+            });
+
+            // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+            map.setCenter(coords);
+        } 
+    });
 </script>
 
 </body>
