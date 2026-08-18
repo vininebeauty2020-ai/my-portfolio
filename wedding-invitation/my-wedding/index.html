@@ -77,9 +77,9 @@ section{padding:86px 22px;position:relative;text-align:center}
 .hero-date{margin-top:24px;font-size:11px;letter-spacing:.14em}
 .hero-scroll{position:absolute;right:20px;bottom:48px;z-index:2;writing-mode:vertical-rl;font-size:9px;letter-spacing:.25em;color:#fff;opacity:.8}
 
-/* banner */
-.banner-wrap{padding:0 22px 22px;background:var(--white)}
-.banner{width:100%;aspect-ratio:2/1;display:block;object-fit:cover;border-radius:2px;background:#e9e3db}
+/* banner - 여백 제거 수정완료 */
+.banner-wrap{padding:0; margin-bottom: 22px; background:var(--white)}
+.banner{width:100%;aspect-ratio:2/1;display:block;object-fit:cover;border-radius:0;background:#e9e3db}
 .banner-caption{font-size:9px;color:#aaa;letter-spacing:.12em;margin-top:8px}
 
 /* date */
@@ -87,7 +87,10 @@ section{padding:86px 22px;position:relative;text-align:center}
 .date-main{font-family:'DM Serif Display',serif;font-size:30px}.date-sub{font-size:11px;letter-spacing:.14em;color:var(--muted);margin-top:6px}
 .calendar{margin:24px auto 0;max-width:330px}.calendar-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:14px}
 .calendar-month{font-family:'DM Serif Display',serif;font-size:23px}.calendar-year{font-size:10px;letter-spacing:.15em;color:var(--muted)}
-.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;font-size:11px}.dow{color:#aaa;padding-bottom:8px}.day{height:37px;display:flex;align-items:center;justify-content:center;position:relative;color:#555}.day.empty{color:transparent}.day.wedding{font-weight:600;color:#fff}.day.wedding:before{content:"";position:absolute;width:31px;height:31px;border-radius:50%;background:var(--accent);z-index:0}.day span{position:relative;z-index:1}.day.sun{color:#b36f6a}.day.sat{color:#788175}
+.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;font-size:11px}.dow{color:#aaa;padding-bottom:8px}.day{height:37px;display:flex;align-items:center;justify-content:center;position:relative;color:#555}.day.empty{color:transparent}
+/* Calendar 24일 색상 흰색 강제 적용 수정완료 */
+.day.sun{color:#b36f6a}.day.sat{color:#788175}
+.day.wedding{font-weight:600;color:#fff !important}.day.wedding:before{content:"";position:absolute;width:31px;height:31px;border-radius:50%;background:var(--accent);z-index:0}.day span{position:relative;z-index:1}
 
 /* profile */
 .profile-grid{display:grid;grid-template-columns:1fr 1px 1fr;gap:18px;align-items:center;max-width:390px;margin:auto}
@@ -130,7 +133,6 @@ section{padding:86px 22px;position:relative;text-align:center}
 </head>
 <body>
 
-<!-- 메인 이미지: ./img/main.gif 를 들판에서 손잡은 메인 사진으로 사용 -->
 <div id="start-overlay" onclick="startInvitation()">
     <img class="open-bg" src="./img/main.gif" alt="Wedding">
     <div class="open-copy">
@@ -170,7 +172,7 @@ section{padding:86px 22px;position:relative;text-align:center}
         </p>
     </section>
 
-    <!-- 600 × 300 비율 이미지 1 -->
+    <!-- 600 × 300 비율 이미지 1 (여백 제거됨) -->
     <div class="banner-wrap reveal">
         <img class="banner" src="./img/banner-middle.jpg" alt="웨딩 이미지 1">
     </div>
@@ -280,7 +282,6 @@ section{padding:86px 22px;position:relative;text-align:center}
         <div class="section-kicker">Parking</div>
         <h2 class="section-title">Parking <em>Guide</em></h2>
         <div class="info-card" style="text-align:left;padding:0;overflow:hidden">
-            <!-- 실제 주차 약도 파일을 ./img/parking-map.jpg 로 넣어주세요. -->
             <img class="parking-map" src="./img/parking-map.jpg" alt="주차 약도" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="parking-placeholder" style="display:none">주차 약도 이미지를<br><b>./img/parking-map.jpg</b> 이름으로 넣어주세요.</div>
             <div style="padding:18px 18px 6px">
@@ -348,7 +349,7 @@ section{padding:86px 22px;position:relative;text-align:center}
         </div>
     </section>
 
-    <!-- 600 × 300 비율 이미지 2 -->
+    <!-- 600 × 300 비율 이미지 2 (여백 제거됨) -->
     <div class="banner-wrap reveal">
         <img class="banner" src="./img/banner-bottom.jpg" alt="웨딩 이미지 2">
     </div>
@@ -361,7 +362,7 @@ section{padding:86px 22px;position:relative;text-align:center}
 
 <button class="floating-rsvp" type="button" onclick="document.getElementById('rsvp').scrollIntoView({behavior:'smooth'})">R.S.V.P · 참석 의사 전달하기</button>
 
-<!-- Kakao Map Web SDK: JavaScript 키의 JavaScript SDK 도메인에 실제 배포 도메인을 반드시 등록 -->
+<!-- Kakao Map Web SDK -->
 <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=8d75c909b1a880fd946d7962742be972&libraries=services&autoload=false" onerror="handleKakaoLoadError()"></script>
 <script>
 const WEDDING = {
@@ -428,7 +429,7 @@ function initKakaoMap(){
     const message=document.getElementById('map-message');
     const error=document.getElementById('map-error');
     if(typeof kakao==='undefined' || !kakao.maps){
-        showMapError('카카오 지도를 불러오지 못했습니다. 카카오디벨로퍼스의 <b>JavaScript SDK 도메인</b>에 실제 청첩장 주소가 등록되어 있는지 확인해주세요.');
+        showMapError('카카오 지도를 불러오지 못했습니다.<br><br><b>💡 혹시 내 컴퓨터에서 더블클릭해서 실행하셨나요?</b><br>서버(tozz.kr)에 업로드한 뒤 접속하시면 지도가 정상적으로 나타납니다!');
         return;
     }
     try{
@@ -446,10 +447,10 @@ function initKakaoMap(){
                 container.classList.add('loaded'); message.style.display='none';
             });
         });
-    }catch(e){showMapError('카카오 지도 초기화에 실패했습니다. 브라우저 개발자도구의 Console에서 오류를 확인해주세요.');}
+    }catch(e){showMapError('카카오 지도 초기화에 실패했습니다. 서버 업로드 여부를 확인해주세요.');}
 }
 
-function handleKakaoLoadError(){showMapError('카카오 지도 SDK를 불러오지 못했습니다. JavaScript 키와 등록 도메인을 확인해주세요.');}
+function handleKakaoLoadError(){showMapError('카카오 지도 SDK를 불러오지 못했습니다.<br><br><b>💡 혹시 로컬 PC 환경(file://)이신가요?</b><br>카카오 정책상 서버(tozz.kr)에 업로드해야 지도가 보입니다.');}
 function showMapError(msg){const error=document.getElementById('map-error');if(error){error.innerHTML=msg;error.classList.add('show');}document.getElementById('map-message').style.display='none';}
 
 function copyText(text){
@@ -461,11 +462,6 @@ function toggleAccount(id,btn){
     btn.querySelector('i').className=open?'ri-subtract-line':'ri-add-line';
 }
 
-/*
- * RSVP는 현재 사용 중인 Google Apps Script Web App으로 POST합니다.
- * 프런트에서 CORS 응답을 읽지 않고 전송 성공 여부만 안내하도록 no-cors를 사용합니다.
- * Google Sheet의 doPost(e)에서 name/side/attend/meal/guests/phone 값을 받아 저장하면 됩니다.
- */
 async function submitRSVP(e){
     e.preventDefault();
     const form=document.getElementById('rsvpForm');
