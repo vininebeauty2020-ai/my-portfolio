@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Sans+KR:wght@300;400;500;600&family=Noto+Serif+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
 <style>
 :root{
@@ -97,7 +98,8 @@ section{padding:86px 22px;position:relative;text-align:center}
 .profile-divider{width:1px;height:54px;background:var(--line)}.profile-side{text-align:center}.profile-role{font-size:9px;letter-spacing:.15em;color:var(--muted);margin-bottom:8px}.profile-name{font-family:'Noto Serif KR',serif;font-size:20px;font-weight:500}.profile-parent{font-size:10px;color:#8a857f;margin-top:6px;line-height:1.6}
 
 /* gallery */
-.gallery-intro{font-size:11px;color:var(--muted);margin:-15px 0 26px}.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}.gallery-item{aspect-ratio:1/1;overflow:hidden;background:#eee}.gallery-item img{width:100%;height:100%;display:block;object-fit:cover;user-select:none;-webkit-user-drag:none;pointer-events:none;transition:transform .5s ease}.gallery-item:nth-child(5n){aspect-ratio:4/5}.gallery-item:nth-child(7n){aspect-ratio:5/4}.gallery-note{font-size:9px;color:#aaa;margin-top:18px;letter-spacing:.04em}
+.gallery-intro{font-size:11px;color:var(--muted);margin:-15px 0 26px}.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}.gallery-item{aspect-ratio:1/1;overflow:hidden;background:#eee}
+.gallery-item img{width:100%;height:100%;display:block;object-fit:cover;user-select:none;-webkit-user-drag:none;cursor:pointer;transition:transform .5s ease}
 
 /* location */
 .location-lead{padding:24px 0 22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:22px}.location-name{font-size:18px;font-weight:600}.location-time{display:inline-block;margin-top:9px;padding:6px 10px;background:var(--ink);color:#fff;border-radius:2px;font-size:11px;letter-spacing:.08em}.location-address{font-size:11px;color:var(--muted);margin-top:11px}
@@ -127,6 +129,17 @@ section{padding:86px 22px;position:relative;text-align:center}
 /* reveal animation */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}.reveal.from-left{transform:translateX(-24px)}.reveal.from-right{transform:translateX(24px)}.reveal.visible{opacity:1;transform:none}.stagger>*{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}.stagger.visible>*{opacity:1;transform:none}.stagger.visible>*:nth-child(2){transition-delay:.07s}.stagger.visible>*:nth-child(3){transition-delay:.14s}.stagger.visible>*:nth-child(4){transition-delay:.21s}.stagger.visible>*:nth-child(5){transition-delay:.28s}.stagger.visible>*:nth-child(6){transition-delay:.35s}
 
+/* 라이트박스 (확대 갤러리) CSS */
+.lightbox { position: fixed; inset: 0; background: rgba(15, 14, 13, 0.95); z-index: 999999; display: none; flex-direction: column; justify-content: center; opacity: 0; transition: opacity 0.3s ease; }
+.lightbox.show { display: flex; opacity: 1; }
+.lightbox-close { position: absolute; top: 20px; right: 20px; background: none; border: none; color: #fff; font-size: 34px; z-index: 2; cursor: pointer; padding: 10px; }
+.lightbox-swiper { width: 100%; height: 75vh; margin-top: 20px; }
+.lightbox-swiper .swiper-slide { display: flex; align-items: center; justify-content: center; }
+.lightbox-swiper img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.lightbox-pagination { color: #fff; font-size: 13px; letter-spacing: 0.1em; bottom: -35px !important; }
+.lightbox-next, .lightbox-prev { color: #fff; }
+.lightbox-next::after, .lightbox-prev::after { font-size: 24px !important; }
+
 @media (min-width:700px){body{padding:25px 0}.wrap{border-radius:4px}.floating-rsvp{bottom:24px}.hero{min-height:760px}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal,.stagger>*{transition:none!important;transform:none!important;opacity:1!important}}
 </style>
@@ -134,7 +147,7 @@ section{padding:86px 22px;position:relative;text-align:center}
 <body>
 
 <div id="start-overlay" onclick="startInvitation()">
-    <img class="open-bg" src="./img/main.gif" alt="Wedding">
+    <img class="open-bg" src="./img/open.jpg" alt="Wedding">
     <div class="open-copy">
         <div class="small">WEDDING INVITATION</div>
         <div class="script">Yurak & Haebin</div>
@@ -354,11 +367,29 @@ section{padding:86px 22px;position:relative;text-align:center}
         <img class="banner" src="./img/banner-bottom.jpg" alt="웨딩 이미지 2">
     </div>
 
+    <!-- 라이트박스(확대 갤러리) 영역 -->
+    <div id="lightbox" class="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()"><i class="ri-close-line"></i></button>
+    <div class="swiper lightbox-swiper">
+        <div class="swiper-wrapper" id="lightbox-wrapper">
+            <!-- 자바스크립트로 이미지가 자동 생성됩니다 -->
+        </div>
+        <div class="swiper-button-next lightbox-next"></div>
+        <div class="swiper-button-prev lightbox-prev"></div>
+        <div class="swiper-pagination lightbox-pagination"></div>
+    </div>
+</div>
+
+<!-- 스와이퍼 JS 라이브러리 -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
     <footer class="footer">
         <div class="footer-date">2026. 10. 24</div>
         <div class="footer-small">This invitation was made with love by the bride · 신부가 직접 만든 모바일 청첩장입니다 :)</div>
     </footer>
 </div>
+
+
 
 <button class="floating-rsvp" type="button" onclick="document.getElementById('rsvp').scrollIntoView({behavior:'smooth'})">R.S.V.P · 참석 의사 전달하기</button>
 
@@ -477,6 +508,52 @@ async function submitRSVP(e){
         status.textContent='전송에 실패했습니다. 잠시 후 다시 시도해주세요.';
     }finally{btn.disabled=false;btn.textContent='참석 의사 전달하기';}
 }
+
+let lightboxSwiper;
+
+// 갤러리 모달 세팅 함수
+function initLightbox() {
+    const galleryImages = document.querySelectorAll('.gallery-item img');
+    const wrapper = document.getElementById('lightbox-wrapper');
+
+    // 1. 기존 갤러리 이미지를 가져와서 모달 안에 똑같이 복사해서 넣기
+    galleryImages.forEach((img, index) => {
+        // 클릭하면 해당 사진 번호로 모달 열기
+        img.addEventListener('click', () => openLightbox(index));
+        
+        const slide = document.createElement('div');
+        slide.className = 'swiper-slide';
+        slide.innerHTML = `<img src="${img.src}" alt="Gallery ${index + 1}">`;
+        wrapper.appendChild(slide);
+    });
+
+    // 2. 무한 롤링 스와이퍼 설정
+    lightboxSwiper = new Swiper('.lightbox-swiper', {
+        loop: true, // 무한 반복
+        spaceBetween: 20, // 사진 사이 간격
+        pagination: { el: '.lightbox-pagination', type: 'fraction' }, // 1 / 24 형태의 숫자 표시
+        navigation: { nextEl: '.lightbox-next', prevEl: '.lightbox-prev' },
+        observer: true,
+        observeParents: true
+    });
+}
+
+    // 모달 열기
+    function openLightbox(index) {
+        document.getElementById('lightbox').classList.add('show');
+        document.body.style.overflow = 'hidden'; // 뒤에 배경 스크롤 막기
+        lightboxSwiper.slideToLoop(index, 0); // 클릭한 이미지로 딜레이 없이 짠! 하고 이동
+    }
+
+    // 모달 닫기
+    function closeLightbox() {
+        document.getElementById('lightbox').classList.remove('show');
+        document.body.style.overflow = ''; // 배경 스크롤 원상복구
+    }
+
+    // 웹페이지가 로드되면 라이트박스 준비
+    window.addEventListener('DOMContentLoaded', initLightbox);
+
 </script>
 </body>
 </html>
