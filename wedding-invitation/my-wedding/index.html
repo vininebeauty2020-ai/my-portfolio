@@ -94,7 +94,7 @@
 </div>
 
 <div id="start-overlay" onclick="startInvitation()">
-    <img src="./img/open.gif" alt="배경" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:-1; filter:brightness(0.7);">
+    <img src="./img/open.jpg" alt="배경" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:-1; filter:brightness(0.7);">
     <div style="font-size:2.2rem; font-family:'Dancing Script', cursive; letter-spacing:2px; margin-bottom:10px;">Tap to Open</div>
     <div style="font-size:0.9rem; font-weight:300; color:#fff;">화면을 터치하시면 초대장이 열립니다.</div>
 </div>
@@ -191,7 +191,7 @@
         <div class="info-box fade-up">
             <div class="info-title"><i class="ri-restaurant-line"></i> 피로연(식당) 안내</div>
             <p class="info-desc">
-                <strong>채담은</strong><br>
+                <strong>채담은 (아래 이용시간을 확인해주세요!)</strong><br>
                 주소: 대구 수성구 노변로 75-4<br>
                 이용 시간: 11:30 ~ 13:30<br>
                 <span style="font-size:0.85rem; color:var(--point-dark);">※ 축의대는 식당에 비치될 예정입니다.</span>
@@ -338,24 +338,15 @@
     function openRSVPModal() { rsvpModal.style.display = 'flex'; setTimeout(() => rsvpModal.style.opacity = 1, 10); }
     function closeRSVPModal() { rsvpModal.style.opacity = 0; setTimeout(() => rsvpModal.style.display = 'none', 400); }
     
-    // ★ [핵심] RSVP 구글 시트 전송 함수
+// ★ [핵심] RSVP 구글 시트 전송 함수
     function submitRSVP(e) {
         e.preventDefault();
         const form = document.getElementById('rsvpForm');
         
-        // =========================================================================
         // 여기에 위에서 발급받은 Apps Script 웹 앱 URL을 붙여넣으세요!
         const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxjlQKBXl-EBgAtcPWECsMbHrf-G2-nSg5M7QDt_MjfNMJSsEYAQJQhH67vpG-8PNjF/exec"; 
-        // =========================================================================
 
-        if(GOOGLE_SCRIPT_URL === "https://script.google.com/macros/s/AKfycbxjlQKBXl-EBgAtcPWECsMbHrf-G2-nSg5M7QDt_MjfNMJSsEYAQJQhH67vpG-8PNjF/exec") {
-            alert("[테스트 안내] 구글 시트 URL이 연결되지 않아 화면에만 성공으로 표시됩니다.");
-            closeRSVPModal();
-            form.reset();
-            return;
-        }
-
-        // 실제 데이터 전송
+        // 실제 데이터 전송 (테스트용 방어 코드 삭제함)
         fetch(GOOGLE_SCRIPT_URL, {
             method: 'POST',
             body: new URLSearchParams(new FormData(form))
