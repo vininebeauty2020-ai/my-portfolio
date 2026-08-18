@@ -85,7 +85,7 @@ section{padding:86px 22px;position:relative;text-align:center}
 
 /* banner - 여백 제거 수정완료 */
 .banner-wrap{padding:0; margin-bottom: 22px; background:var(--white)}
-.banner{width:100%;aspect-ratio:2/1;display:block;object-fit:cover;border-radius:0;background:#e9e3db}
+.banner{width:100%;aspect-ratio:5/4;display:block;object-fit:cover;border-radius:0;background:#e9e3db}
 .banner-caption{font-size:9px;color:#aaa;letter-spacing:.12em;margin-top:8px}
 
 /* date */
@@ -103,10 +103,10 @@ section{padding:86px 22px;position:relative;text-align:center}
 .profile-divider{width:1px;height:54px;background:var(--line)}.profile-side{text-align:center}.profile-role{font-size:9px;letter-spacing:.15em;color:var(--muted);margin-bottom:8px}.profile-name{font-family:'Noto Serif KR',serif;font-size:20px;font-weight:500}.profile-parent{font-size:10px;color:#8a857f;margin-top:6px;line-height:1.6}
 
 /* gallery */
-.gallery-intro{font-size:11px;color:var(--muted);margin:-15px 0}
-.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);}
-.gallery-item{aspect-ratio:1/1;overflow:hidden;background:#eee; gap:3px;}
-.gallery-item img{width:100%;height:100%;display:block;object-fit:cover;user-select:none;-webkit-user-drag:none;cursor:pointer;transition:transform .5s ease}
+.gallery-intro {  font-size: 11px;  color: var(--muted);  margin: -15px 0;}
+.gallery-grid {  display: grid;  grid-template-columns: repeat(3, 1fr);width: 100%; margin: 0; /* 갤러리 전체의 외부 여백 제거 */  padding: 0; /* 갤러리 전체의 내부 여백 제거 */  gap: 3px; /* 아이템 사이의 간격 (원하는 만큼 픽셀 조절 가능) */}
+.gallery-item {aspect-ratio: 1/1;overflow: hidden; background: #eee;}
+.gallery-item img {width: 100%; height: 100%;display: block;object-fit: cover;user-select: none;-webkit-user-drag: none;cursor: pointer;transition: transform .5s ease;}
 
 /* location */
 .location-lead{padding:24px 0 22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:22px}.location-name{font-size:18px;font-weight:600}.location-time{display:inline-block;margin-top:9px;padding:6px 10px;background:var(--ink);color:#fff;border-radius:2px;font-size:11px;letter-spacing:.08em}.location-address{font-size:11px;color:var(--muted);margin-top:11px}
@@ -261,12 +261,6 @@ section{padding:86px 22px;position:relative;text-align:center}
             <div class="gallery-item"><img src="./img/19.jpg" alt="웨딩 사진 19"></div>
             <div class="gallery-item"><img src="./img/20.jpg" alt="웨딩 사진 20"></div>
             <div class="gallery-item"><img src="./img/21.jpg" alt="웨딩 사진 21"></div>
-            <div class="gallery-item"><img src="./img/22.jpg" alt="웨딩 사진 22"></div>
-            <div class="gallery-item"><img src="./img/23.jpg" alt="웨딩 사진 23"></div>
-            <div class="gallery-item"><img src="./img/24.jpg" alt="웨딩 사진 24"></div>
-            <div class="gallery-item"><img src="./img/25.jpg" alt="웨딩 사진 25"></div>
-            <div class="gallery-item"><img src="./img/26.jpg" alt="웨딩 사진 26"></div>
-            <div class="gallery-item"><img src="./img/27.jpg" alt="웨딩 사진 27"></div>
 
         </div>
     </section>
@@ -611,3 +605,9 @@ function shareKakao() {
 </script>
 </body>
 </html>
+
+<!--  -->
+git add .
+git commit -m "RSVP 구글시트 연동 및 지도, 방명록 업데이트"
+git push origin main
+
