@@ -190,16 +190,6 @@ section{padding:86px 22px;position:relative;text-align:center}
         <img class="banner" src="./img/img1.jpg" alt="웨딩 이미지 1">
     </div>
 
-    <section class="soft reveal" id="date">
-        <div class="section-kicker">Save the Date</div>
-        <h2 class="section-title">October <em>24</em></h2>
-        <div class="date-card">
-            <div class="date-main">2026. 10. 24</div>
-            <div class="date-sub">SATURDAY · 1:30 PM</div>
-            <div class="calendar" id="calendar"></div>
-        </div>
-    </section>
-
     <section class="reveal" id="profile">
         <div class="section-kicker">Groom &amp; Bride</div>
         <h2 class="section-title">Two, becoming <em>one</em></h2>
@@ -217,6 +207,18 @@ section{padding:86px 22px;position:relative;text-align:center}
             </div>
         </div>
     </section>
+    
+    <section class="soft reveal" id="date">
+        <div class="section-kicker">Save the Date</div>
+        <h2 class="section-title">October <em>24</em></h2>
+        <div class="date-card">
+            <div class="date-main">2026. 10. 24</div>
+            <div class="date-sub">SATURDAY · 1:30 PM</div>
+            <div class="calendar" id="calendar"></div>
+        </div>
+    </section>
+
+
 
     <section class="soft reveal" id="gallery">
         <div class="section-kicker">Our Moments</div>
@@ -385,7 +387,7 @@ section{padding:86px 22px;position:relative;text-align:center}
 
     <footer class="footer">
         <div class="footer-date">2026. 10. 24</div>
-        <div class="footer-small">This invitation was made with love by the bride · 신부가 직접 만든 모바일 청첩장입니다 :)</div>
+        <div class="footer-small">This invitation was made with love by the bride <br> 신부가 직접 만든 모바일 청첩장입니다 :)</div>
     </footer>
 </div>
 
@@ -473,8 +475,8 @@ function initKakaoMap(){
                 let coords=new kakao.maps.LatLng(WEDDING.lat,WEDDING.lng);
                 if(status===kakao.maps.services.Status.OK){coords=new kakao.maps.LatLng(result[0].y,result[0].x);}
                 const marker=new kakao.maps.Marker({map:map,position:coords});
-                const info=new kakao.maps.InfoWindow({content:'<div style="padding:7px 12px;font-size:11px;white-space:nowrap">대구고산 왕국회관</div>'});
-                info.open(map,marker); map.setCenter(coords); map.relayout();
+                const info=new kakao.maps.InfoWindow({content:'<div style="width:150px;text-align:center;padding:7px 0;font-size:12px;font-weight:600;color:#333;">대구고산 왕국회관</div>'});                     
+                 info.open(map,marker); map.setCenter(coords); map.relayout();
                 container.classList.add('loaded'); message.style.display='none';
             });
         });
