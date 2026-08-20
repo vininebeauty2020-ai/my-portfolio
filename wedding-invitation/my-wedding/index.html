@@ -73,9 +73,9 @@ section{padding:86px 22px;position:relative;text-align:center}
 .bgm-btn i{font-size:18px}.spin{animation:spin 4s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
 
 /* hero */
-.hero{height:100svh;min-height:720px;padding:0;display:flex;align-items:flex-end;overflow:hidden;background:#ddd}
+.hero{height:100svh;min-height:620px;padding:0;display:flex;align-items:flex-end;overflow:hidden;background:#ddd}
 .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-/* .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.03) 35%,rgba(25,22,20,.48) 100%)} */
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.03) 35%,rgba(25,22,20,.48) 100%)}
 .hero-content{position:relative;z-index:1;width:100%;padding:0 28px 48px;text-align:left;color:#fff}
 .hero-eyebrow{font-size:10px;letter-spacing:.28em;margin-bottom:12px;opacity:.9}
 .hero-names{font-family:'DM Serif Display',serif;font-size:46px;line-height:.98;font-weight:400;letter-spacing:-.02em}
@@ -148,35 +148,17 @@ section{padding:86px 22px;position:relative;text-align:center}
 .rsvp-submit:hover { background: #c28787; }
 .rsvp-status { font-size: 12px; line-height: 1.7; margin-top: 10px; color: #a38c8c; min-height: 17px; text-align: center; }
 
+/* 카카오톡 공유 버튼 CSS 원상복구 */
+.btn-kakao { display: flex; align-items: center; justify-content: center; width: 100%; height: 48px; background-color: #FEE500; color: #000000; font-size: 13px; font-weight: 600; border: none; border-radius: 4px; cursor: pointer; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: opacity 0.2s; }
+.btn-kakao:active { opacity: 0.8; }
+.btn-kakao i { font-size: 18px; margin-right: 6px; }
+
 /* footer */
 .footer{padding:30px 20px 90px;text-align:center;background:var(--white)}.footer-date{font-family:'DM Serif Display',serif;font-size:22px;}
 .footer-small{margin-top:18px;color:#b7b1aa;font-size:10px;letter-spacing:.08em}
 
 /* fixed rsvp */
 .floating-rsvp{position:fixed;left:50%;bottom:15px;transform:translateX(-50%);z-index:8999;width:min(92%,470px);height:50px;border:1px solid rgba(255,255,255,.55);background:rgba(52,50,47,.94);backdrop-filter:blur(10px);color:#fff;box-shadow:0 8px 30px rgba(0,0,0,.18);font-size:11px;letter-spacing:.08em;cursor:pointer}
-
-/* 우측 하단 공유버튼 플로팅 (세련된 스타일로 변경) */
-.floating-share {
-    position: fixed;
-    right: max(4%, calc(50% - 240px));
-    bottom: 80px; 
-    z-index: 8999;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #fff; /* 세련된 화이트 배경 */
-    color: #8e625e; /* 청첩장 테마에 맞춘 고급스러운 포인트 컬러 */
-    border: 1px solid #e7d1d1; /* 은은한 테두리 */
-    box-shadow: 0 4px 15px rgba(139, 93, 93, 0.15); /* 부드러운 그림자 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px; /* 아이콘 크기 조정 */
-    cursor: pointer;
-    transition: transform 0.2s, background-color 0.2s;
-}
-.floating-share:active { transform: scale(0.92); }
-.floating-share:hover { background-color: #fbf7f4; }
 
 /* reveal animation */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}.reveal.from-left{transform:translateX(-24px)}.reveal.from-right{transform:translateX(24px)}.reveal.visible{opacity:1;transform:none}.stagger>*{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}.stagger.visible>*{opacity:1;transform:none}.stagger.visible>*:nth-child(2){transition-delay:.07s}.stagger.visible>*:nth-child(3){transition-delay:.14s}.stagger.visible>*:nth-child(4){transition-delay:.21s}.stagger.visible>*:nth-child(5){transition-delay:.28s}.stagger.visible>*:nth-child(6){transition-delay:.35s}
@@ -216,11 +198,11 @@ section{padding:86px 22px;position:relative;text-align:center}
 
     <section class="hero">
         <img src="./img/main.gif" alt="신랑 신부 메인 사진">
-        <!-- <div class="hero-content">
+        <div class="hero-content">
             <div class="hero-eyebrow">WE ARE GETTING MARRIED</div>
             <div class="hero-names"><span>Yurak</span><span class="and">&amp;</span><span>Haebin</span></div>
             <div class="hero-date">2026. 10. 24 SAT 13:30 · 대구고산 왕국회관</div>
-        </div> -->
+        </div>
         <div class="hero-scroll">SCROLL</div>
     </section>
 
@@ -326,7 +308,7 @@ section{padding:86px 22px;position:relative;text-align:center}
                 <div class="info-text">
                     <span class="time-strong">11:30 ~ 13:30</span><br>
                     대구 수성구 노변로 75-4<br>
-                    <b>※ 북부회중과 복현회중 분들께만 해당되는 초대장이며,<br>연회장에서 먼저 식사를 하신 후 고산왕국회관으로 오시면 됩니다.</b><br>
+                    <b>※ 식당 이용시간이 예식장과 다르니 꼭 확인해주세요.</b><br>
                     <span style="color:#8e625e">※ 축의대는 식당에 비치될 예정입니다.</span>
                 </div>
             </div>
@@ -348,7 +330,7 @@ section{padding:86px 22px;position:relative;text-align:center}
                 <div class="info-label">PARKING INFORMATION</div>
                 <ul class="parking-list">
                     <li><b>주차 위치</b> · 고산2동 커뮤니티센터 인근, 노변중학교/늘봄파파 인근, 아진공원 인근 등 약도를 참조해 주세요.</li>
-                    <li><b>TIP</b> · 주차장소가 협소하므로 카풀이나 대중교통을 이용해 오시는 걸 추천드립니다.</li>
+                    <li><b>TIP</b> · 예식장과 식당의 주차 위치가 다르다면 각각 구분해서 표시하는 것을 추천합니다.</li>
                 </ul>
             </div>
         </div>
@@ -357,8 +339,6 @@ section{padding:86px 22px;position:relative;text-align:center}
     <section class="reveal" id="account">
         <div class="section-kicker">With Love</div>
         <h2 class="section-title">For Your <em>Heart</em></h2>
-        <p class="gallery-intro">소중한 축하와 따뜻한 마음에 깊이 감사드립니다.</p>
-
         <div class="account-card">
             <div class="account-group">
                 <div class="account-title" onclick="toggleAccount('groom-acc',this)">신랑측 계좌번호 <i class="ri-add-line"></i></div>
@@ -370,8 +350,8 @@ section{padding:86px 22px;position:relative;text-align:center}
             <div class="account-group">
                 <div class="account-title" onclick="toggleAccount('bride-acc',this)">신부측 계좌번호 <i class="ri-add-line"></i></div>
                 <div class="account-content" id="bride-acc">
-                    <div class="account-item"><div><span class="account-person">신부 김해빈</span><span class="account-number">토스 1000-3364-5616 김해빈</span></div><button class="btn-acc" onclick="copyText('77788889999')">복사</button></div>
-                    <div class="account-item"><div><span class="account-person">신부측 가족</span><span class="account-number">국민 010-3006-4259 김성환</span></div><button class="btn-acc" onclick="copyText('계좌번호를 입력해주세요')">복사</button></div>
+                    <div class="account-item"><div><span class="account-person">신부 김해빈</span><span class="account-number">기업 777-8888-9999</span></div><button class="btn-acc" onclick="copyText('77788889999')">복사</button></div>
+                    <div class="account-item"><div><span class="account-person">신부측 가족</span><span class="account-number">계좌번호를 입력해주세요</span></div><button class="btn-acc" onclick="copyText('계좌번호를 입력해주세요')">복사</button></div>
                 </div>
             </div>
         </div>
@@ -414,6 +394,19 @@ section{padding:86px 22px;position:relative;text-align:center}
         <img class="banner" src="./img/img2.jpg" alt="웨딩 이미지 2">
     </div>
 
+    <!-- 공유하기 버튼 하단 섹션으로 원상복구 -->
+    <section class="reveal" style="padding-top: 0; padding-bottom: 30px;">
+        <div class="info-card" style="margin-top: 0; text-align: center; border: none; padding: 0;">
+            <h3 style="font-size: 13px; margin: 0 0 15px; font-weight: 600; color: #333;">소중한 분들께 청첩장 전달하기</h3>
+            <button class="btn-kakao" onclick="shareKakao()">
+                <i class="ri-kakao-talk-fill"></i> 카카오톡으로 공유하기
+            </button>
+            <button class="copy-btn" onclick="copyText('https://tozz.kr')" style="margin-top: 8px;">
+                <i class="ri-link"></i> 청첩장 링크 복사하기
+            </button>
+        </div>
+    </section>
+
     <div id="lightbox" class="lightbox">
         <button class="lightbox-close" onclick="closeLightbox()"><i class="ri-close-line"></i></button>
         <div class="swiper lightbox-swiper">
@@ -431,18 +424,14 @@ section{padding:86px 22px;position:relative;text-align:center}
     </footer>
 </div>
 
-<!-- 플로팅 하단 공유 & RSVP 버튼 -->
-<button class="floating-share" type="button" onclick="shareKakao()" aria-label="청첩장 공유하기">
-    <!-- 카카오톡 아이콘 대신 세련된 범용 공유 아이콘 적용 -->
-    <i class="ri-share-forward-line"></i>
-</button>
+<!-- 우측 하단에는 다시 RSVP 버튼 하나만 띄웁니다 -->
 <button class="floating-rsvp" type="button" onclick="document.getElementById('rsvp').scrollIntoView({behavior:'smooth'})">R.S.V.P · 참석 의사 전달하기</button>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<!-- 아래의 8d75c909b1a880fd946d7962742be972 부분은 꼭 발급받으신 자바스크립트 키로 유지해 주세요! -->
 <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=8d75c909b1a880fd946d7962742be972&libraries=services&autoload=false" onerror="handleKakaoLoadError()"></script>
-<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.8.1/kakao.min.js"
-        integrity="sha384-OL+ylM/iuPLtW5U3XcvLSGhE8JzReKDank5InqlHGWPhb4140/yrBw0bg0y7+C9J"
-        crossorigin="anonymous"></script>
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js"></script>
+
 <script>
 const WEDDING = {
     date: new Date(2026, 9, 24),
@@ -464,14 +453,14 @@ function startInvitation(){
     const overlay = document.getElementById('start-overlay');
     const mainWrap = document.getElementById('main-wrap');
     
-    //[cite: 2] 터치 즉시 숨겨져 있던 메인 화면을 뒤쪽에 준비시킵니다.
+    // 터치 즉시 숨겨져 있던 메인 화면을 뒤쪽에 준비시킵니다.[cite: 2]
     mainWrap.style.display = 'block';
     
-    //[cite: 2] 오프닝 화면이 0.45초 동안 부드럽게 사라지게 효과를 추가합니다.
+    // 오프닝 화면이 0.45초 동안 부드럽게 사라지게 효과를 추가합니다.[cite: 2]
     overlay.style.transition = 'opacity 0.45s ease';
     overlay.style.opacity = '0';
     
-    //[cite: 2] BGM은 화면을 터치하는 액션과 "동시에" 실행되어야 안 끊기고 재생됩니다.
+    // BGM은 화면을 터치하는 액션과 "동시에" 실행되어야 안 끊기고 재생됩니다.[cite: 2]
     const playPromise = bgm.play();
     if (playPromise !== undefined) {
         playPromise.then(()=>{
@@ -480,12 +469,12 @@ function startInvitation(){
         }).catch(()=>{});
     }
 
-    //[cite: 2] 지도와 애니메이션 등 초기화 기능 실행
+    // 지도와 애니메이션 등 초기화 기능 실행[cite: 2]
     initReveal();
     initCalendar();
     initKakaoMap();
     
-    //[cite: 2] 0.45초 뒤, 투명해진 오프닝 화면을 완전히 화면에서 삭제합니다.
+    // 0.45초 뒤, 투명해진 오프닝 화면을 완전히 화면에서 삭제합니다.[cite: 2]
     setTimeout(()=>{
         overlay.style.display = 'none';
     }, 450);
@@ -577,14 +566,11 @@ async function submitRSVP(e){
 
 let lightboxSwiper;
 
-// 갤러리 모달 세팅 함수
 function initLightbox() {
     const galleryImages = document.querySelectorAll('.gallery-item img');
     const wrapper = document.getElementById('lightbox-wrapper');
 
-    // 1. 기존 갤러리 이미지를 가져와서 모달 안에 똑같이 복사해서 넣기
     galleryImages.forEach((img, index) => {
-        // 클릭하면 해당 사진 번호로 모달 열기
         img.addEventListener('click', () => openLightbox(index));
         
         const slide = document.createElement('div');
@@ -593,36 +579,32 @@ function initLightbox() {
         wrapper.appendChild(slide);
     });
 
-    // 2. 무한 롤링 스와이퍼 설정
     lightboxSwiper = new Swiper('.lightbox-swiper', {
-        loop: true, // 무한 반복
-        spaceBetween: 20, // 사진 사이 간격
-        pagination: { el: '.lightbox-pagination', type: 'fraction' }, // 1 / 24 형태의 숫자 표시
+        loop: true,
+        spaceBetween: 20,
+        pagination: { el: '.lightbox-pagination', type: 'fraction' },
         navigation: { nextEl: '.lightbox-next', prevEl: '.lightbox-prev' },
         observer: true,
         observeParents: true
     });
 }
 
-// 모달 열기
 function openLightbox(index) {
     document.getElementById('lightbox').classList.add('show');
-    document.body.style.overflow = 'hidden'; // 뒤에 배경 스크롤 막기
-    lightboxSwiper.slideToLoop(index, 0); // 클릭한 이미지로 딜레이 없이 짠! 하고 이동
+    document.body.style.overflow = 'hidden';
+    lightboxSwiper.slideToLoop(index, 0);
 }
 
-// 모달 닫기
 function closeLightbox() {
     document.getElementById('lightbox').classList.remove('show');
-    document.body.style.overflow = ''; // 배경 스크롤 원상복구
+    document.body.style.overflow = '';
 }
 
-// 웹페이지가 로드되면 라이트박스 준비
 window.addEventListener('DOMContentLoaded', initLightbox);
 
-//[cite: 2] 카카오톡 SDK가 제대로 불러와졌을 때만 실행되도록 안전망 추가
+// 카카오톡 SDK가 제대로 불러와졌을 때만 실행되도록 안전망 추가[cite: 2]
 if (typeof Kakao !== 'undefined' && !Kakao.isInitialized()) {
-    Kakao.init('8d75c909b1a880fd946d7962742be972'); 
+    Kakao.init('8d75c909b1a880fd946d7962742be972'); // 선생님의 자바스크립트 키
 }
 
 function shareKakao() {
@@ -631,7 +613,6 @@ function shareKakao() {
         content: {
             title: '김유락 ♥ 김해빈 결혼합니다',
             description: '2026년 10월 24일 (토) 오후 1:30\n대구고산 왕국회관',
-            // 카카오 공유하기 썸네일은 반드시 전체 URL(https://~)을 적어주셔야 합니다.
             imageUrl: 'https://tozz.kr/wedding-invitation/my-wedding/img/9.jpg', 
             link: {
                 mobileWebUrl: 'https://tozz.kr/wedding-invitation/my-wedding/',
