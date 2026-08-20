@@ -25,7 +25,7 @@
     --ink:#2d2b29;
     --muted:#827d76;
     --line:#ddd7cf;
-    --accent:#ecbaba;
+    --accent:#fae5e5;
     --accent-deep:#8e625e;
     --sage:#7d887b;
     --shadow:0 18px 50px rgba(52,45,40,.07);
@@ -138,7 +138,7 @@ section{padding:86px 22px;position:relative;text-align:center}
 
 /* footer */
 .footer{padding:30px 20px 90px;text-align:center;background:var(--white)}.footer-date{font-family:'DM Serif Display',serif;font-size:22px;}
-.footer-small{margin-top:18px;color:#b7b1aa;font-size:10px;letter-spacing:.08em}
+.footer-small{margin-top:18px;color:#b7b1aa;font-size:8px;letter-spacing:.08em}
 
 /* fixed rsvp */
 .floating-rsvp{position:fixed;left:50%;bottom:15px;transform:translateX(-50%);z-index:8999;width:min(92%,470px);height:50px;border:1px solid rgba(255,255,255,.55);background:rgba(52,50,47,.94);backdrop-filter:blur(10px);color:#fff;box-shadow:0 8px 30px rgba(0,0,0,.18);font-size:11px;letter-spacing:.08em;cursor:pointer}
@@ -172,7 +172,7 @@ section{padding:86px 22px;position:relative;text-align:center}
     <div class="open-copy">
         <div class="small">WEDDING INVITATION</div>
         <div class="script">Yurak & Haebin</div>
-        <div class="date">2026 · 10 · 24 · SATURDAY · 13:30<br>신랑 신부가 직접 만든 초대장입니다.</div>
+        <div class="date">2026 · 10 · 24 · SATURDAY</div>
         <div class="tap">TAP TO OPEN</div>
     </div>
 </div>
@@ -436,33 +436,15 @@ const bgmIcon = document.getElementById('bgm-icon');
 
 function startInvitation(){
     const overlay = document.getElementById('start-overlay');
-    const mainWrap = document.getElementById('main-wrap');
-    
-    // 1. 하얀 빈 화면 방지: 터치 즉시 숨겨져 있던 메인 화면을 뒤쪽에 준비시킵니다.[cite: 1]
-    mainWrap.style.display = 'block';
-    
-    // 2. 화면 깜빡임/끊김 방지: 오프닝 화면이 0.45초 동안 부드럽게 사라지게 효과를 추가합니다.[cite: 1]
-    overlay.style.transition = 'opacity 0.45s ease';
-    overlay.style.opacity = '0';
-    
-    // 3. iOS 사파리 정책 대응: BGM은 화면을 터치하는 액션과 "동시에" 실행되어야 안 끊기고 재생됩니다.[cite: 1]
-    const playPromise = bgm.play();
-    if (playPromise !== undefined) {
-        playPromise.then(()=>{
-            isPlaying=true;
-            bgmIcon.className='ri-volume-up-line spin';
-        }).catch(()=>{});
-    }
-
-    // 4. 지도와 애니메이션 등 초기화 기능 실행[cite: 1]
-    initReveal();
-    initCalendar();
-    initKakaoMap();
-    
-    // 5. 0.45초 뒤, 투명해진 오프닝 화면을 완전히 화면에서 삭제합니다.[cite: 1]
+    overlay.style.opacity='0';
     setTimeout(()=>{
-        overlay.style.display = 'none';
-    }, 450);
+        overlay.style.display='none';
+        document.getElementById('main-wrap').style.display='block';
+        initReveal();
+        initCalendar();
+        initKakaoMap();
+        bgm.play().then(()=>{isPlaying=true;bgmIcon.className='ri-volume-up-line spin'}).catch(()=>{});
+    },450);
 }
 
 function toggleBGM(){
@@ -594,8 +576,8 @@ function closeLightbox() {
 // 웹페이지가 로드되면 라이트박스 준비
 window.addEventListener('DOMContentLoaded', initLightbox);
 
-// 에러 방지: 카카오톡 SDK가 제대로 불러와졌을 때만 실행되도록 안전망 추가[cite: 1]
-if (typeof Kakao !== 'undefined' && !Kakao.isInitialized()) {
+// 카카오 SDK 초기화 및 공유 기능 (새로 추가됨)
+if (!Kakao.isInitialized()) {
     Kakao.init('8d75c909b1a880fd946d7962742be972'); 
 }
 
@@ -606,7 +588,7 @@ function shareKakao() {
             title: '김유락 ♥ 김해빈 결혼합니다',
             description: '2026년 10월 24일 (토) 오후 1:30\n대구고산 왕국회관',
             // 카카오 공유하기 썸네일은 반드시 전체 URL(https://~)을 적어주셔야 합니다.
-            imageUrl: 'https://tozz.kr/wedding-invitation/my-wedding/img/9.jpg', 
+            imageUrl: 'https://tozz.kr/wedding-invitation/my-wedding/img/10.jpg', 
             link: {
                 mobileWebUrl: 'https://tozz.kr/wedding-invitation/my-wedding/',
                 webUrl: 'https://tozz.kr/wedding-invitation/my-wedding/',
@@ -626,3 +608,4 @@ function shareKakao() {
 </script>
 </body>
 </html>
+
