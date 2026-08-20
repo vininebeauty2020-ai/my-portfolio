@@ -75,12 +75,12 @@ section{padding:86px 22px;position:relative;text-align:center}
 /* hero */
 .hero{height:100svh;min-height:620px;padding:0;display:flex;align-items:flex-end;overflow:hidden;background:#ddd}
 .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.03) 35%,rgba(25,22,20,.48) 100%)}
-.hero-content{position:relative;z-index:1;width:100%;padding:0 28px 48px;text-align:left;color:#fff}
+/* .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.03) 35%,rgba(25,22,20,.48) 100%)} */
+/* .hero-content{position:relative;z-index:1;width:100%;padding:0 28px 48px;text-align:left;color:#fff}
 .hero-eyebrow{font-size:10px;letter-spacing:.28em;margin-bottom:12px;opacity:.9}
 .hero-names{font-family:'DM Serif Display',serif;font-size:46px;line-height:.98;font-weight:400;letter-spacing:-.02em}
 .hero-names span{display:block}.hero-names .and{font-size:18px;font-family:'Noto Serif KR',serif;margin:8px 0;font-weight:300}
-.hero-date{margin-top:24px;font-size:11px;letter-spacing:.14em}
+.hero-date{margin-top:24px;font-size:11px;letter-spacing:.14em} */
 .hero-scroll{position:absolute;right:20px;bottom:48px;z-index:2;writing-mode:vertical-rl;font-size:9px;letter-spacing:.25em;color:#fff;opacity:.8}
 
 /* banner */
@@ -112,13 +112,13 @@ section{padding:86px 22px;position:relative;text-align:center}
 .map-shell{position:relative}.map{width:100%;height:270px;background:#ece9e3;border-radius:2px;overflow:hidden;border:1px solid var(--line)}.map-message{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#918b84;font-size:11px;padding:20px;line-height:1.8;text-align:center;pointer-events:none}.map.loaded+.map-message{display:none}
 .map-error{display:none;margin:8px 0 0;padding:10px;background:#f4eeea;color:#7d665f;font-size:10px;line-height:1.7;text-align:left}.map-error.show{display:block}
 
-/* 지도 버튼 파스텔 톤 수정 */
+/* 지도 버튼 파스텔 톤 및 클래스명 수정 (오류 해결) */
 .nav-buttons{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:9px}
 .nav-buttons a{display:flex;align-items:center;justify-content:center;height:43px;text-decoration:none;font-size:10px;font-weight:600;border:1px solid transparent;border-radius:2px;transition:opacity .2s}
 .nav-buttons a:active{opacity:0.7}
-.nav-buttons a.btn-kakao{background:#fae57c;color:#4b3e0c;} /* 카카오 노란색 파스텔 */
-.nav-buttons a.btn-naver{background:#aee4b9;color:#1f4a27;} /* 네이버 초록색 파스텔 */
-.nav-buttons a.btn-tmap{background:#b1d5f5;color:#1e3b57;}  /* 티맵 하늘색 파스텔 */
+.nav-buttons a.map-kakao{background:#fae57c;color:#4b3e0c;} /* 카카오 노란색 파스텔 */
+.nav-buttons a.map-naver{background:#aee4b9;color:#1f4a27;} /* 네이버 초록색 파스텔 */
+.nav-buttons a.map-tmap{background:#b1d5f5;color:#1e3b57;}  /* 티맵 하늘색 파스텔 */
 
 .copy-btn{width:100%;height:42px;margin-top:6px;border:1px solid var(--line);background:transparent;color:#57524c;font-size:10px;cursor:pointer}
 
@@ -132,7 +132,7 @@ section{padding:86px 22px;position:relative;text-align:center}
 .account-card{background:#fff;border:1px solid var(--line);padding:4px 18px}
 .account-group{border-bottom:1px solid var(--line)}.account-group:last-child{border-bottom:0}.account-title{display:flex;align-items:center;justify-content:space-between;padding:18px 0;cursor:pointer;font-size:12px;font-weight:600}.account-content{display:none;padding:0 0 12px}.account-content.open{display:block}.account-item{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;background:var(--paper);padding:13px;margin-bottom:7px;font-size:10px}.account-person{font-weight:600;margin-right:7px}.account-number{color:#6c6760}.btn-acc{border:1px solid #d7d0c8;background:#fff;padding:8px 9px;font-size:9px;cursor:pointer}
 
-/* RSVP 디자인 전면 개선 */
+/* RSVP 디자인 */
 #rsvp { background: #f8d8d8; padding-bottom: 115px; color: #5e4a4a; }
 #rsvp .section-kicker { color: #d89898; }
 #rsvp .section-title { color: #5e4a4a; }
@@ -148,17 +148,34 @@ section{padding:86px 22px;position:relative;text-align:center}
 .rsvp-submit:hover { background: #c28787; }
 .rsvp-status { font-size: 12px; line-height: 1.7; margin-top: 10px; color: #a38c8c; min-height: 17px; text-align: center; }
 
-/* 카카오톡 공유 버튼 CSS 원상복구 */
-.btn-kakao { display: flex; align-items: center; justify-content: center; width: 100%; height: 48px; background-color: #FEE500; color: #000000; font-size: 13px; font-weight: 600; border: none; border-radius: 4px; cursor: pointer; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: opacity 0.2s; }
-.btn-kakao:active { opacity: 0.8; }
-.btn-kakao i { font-size: 18px; margin-right: 6px; }
-
 /* footer */
 .footer{padding:30px 20px 90px;text-align:center;background:var(--white)}.footer-date{font-family:'DM Serif Display',serif;font-size:22px;}
 .footer-small{margin-top:18px;color:#b7b1aa;font-size:10px;letter-spacing:.08em}
 
 /* fixed rsvp */
 .floating-rsvp{position:fixed;left:50%;bottom:15px;transform:translateX(-50%);z-index:8999;width:min(92%,470px);height:50px;border:1px solid rgba(255,255,255,.55);background:rgba(52,50,47,.94);backdrop-filter:blur(10px);color:#fff;box-shadow:0 8px 30px rgba(0,0,0,.18);font-size:11px;letter-spacing:.08em;cursor:pointer}
+
+/* 새롭게 디자인된 우측 하단 공유버튼 플로팅 */
+.floating-share {
+    position: fixed;
+    right: max(4%, calc(50% - 240px));
+    bottom: 80px; 
+    z-index: 8999;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ecbaba; /* 연분홍색 */
+    color: #ffffff; /* 흰색 아이콘 */
+    border: none;
+    box-shadow: 0 4px 15px rgba(236, 186, 186, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.floating-share:active { transform: scale(0.92); }
 
 /* reveal animation */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}.reveal.from-left{transform:translateX(-24px)}.reveal.from-right{transform:translateX(24px)}.reveal.visible{opacity:1;transform:none}.stagger>*{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}.stagger.visible>*{opacity:1;transform:none}.stagger.visible>*:nth-child(2){transition-delay:.07s}.stagger.visible>*:nth-child(3){transition-delay:.14s}.stagger.visible>*:nth-child(4){transition-delay:.21s}.stagger.visible>*:nth-child(5){transition-delay:.28s}.stagger.visible>*:nth-child(6){transition-delay:.35s}
@@ -198,11 +215,11 @@ section{padding:86px 22px;position:relative;text-align:center}
 
     <section class="hero">
         <img src="./img/main.gif" alt="신랑 신부 메인 사진">
-        <div class="hero-content">
+        <!-- <div class="hero-content">
             <div class="hero-eyebrow">WE ARE GETTING MARRIED</div>
             <div class="hero-names"><span>Yurak</span><span class="and">&amp;</span><span>Haebin</span></div>
             <div class="hero-date">2026. 10. 24 SAT 13:30 · 대구고산 왕국회관</div>
-        </div>
+        </div> -->
         <div class="hero-scroll">SCROLL</div>
     </section>
 
@@ -294,10 +311,11 @@ section{padding:86px 22px;position:relative;text-align:center}
             <div class="map-message" id="map-message">카카오 지도를 불러오는 중입니다.</div>
             <div class="map-error" id="map-error"></div>
         </div>
+        <!-- 지도 버튼 클래스명 수정완료 -->
         <div class="nav-buttons">
-            <a href="https://map.kakao.com/link/search/대구광역시 수성구 시지로 50-5" target="_blank" rel="noopener" class="btn-kakao">카카오맵</a>
-            <a href="https://map.naver.com/v5/search/대구광역시 수성구 시지로 50-5" target="_blank" rel="noopener" class="btn-naver">네이버지도</a>
-            <a href="tmap://search?name=대구광역시 수성구 시지로 50-5" class="btn-tmap">티맵</a>
+            <a href="https://map.kakao.com/link/search/대구광역시 수성구 시지로 50-5" target="_blank" rel="noopener" class="map-kakao">카카오맵</a>
+            <a href="https://map.naver.com/v5/search/대구광역시 수성구 시지로 50-5" target="_blank" rel="noopener" class="map-naver">네이버지도</a>
+            <a href="tmap://search?name=대구광역시 수성구 시지로 50-5" class="map-tmap">티맵</a>
         </div>
         <button class="copy-btn" type="button" onclick="copyText('대구광역시 수성구 시지로 50-5')">주소 복사하기</button>
 
@@ -394,19 +412,6 @@ section{padding:86px 22px;position:relative;text-align:center}
         <img class="banner" src="./img/img2.jpg" alt="웨딩 이미지 2">
     </div>
 
-    <!-- 공유하기 버튼 하단 섹션으로 원상복구 -->
-    <section class="reveal" style="padding-top: 0; padding-bottom: 30px;">
-        <div class="info-card" style="margin-top: 0; text-align: center; border: none; padding: 0;">
-            <h3 style="font-size: 13px; margin: 0 0 15px; font-weight: 600; color: #333;">소중한 분들께 청첩장 전달하기</h3>
-            <button class="btn-kakao" onclick="shareKakao()">
-                <i class="ri-kakao-talk-fill"></i> 카카오톡으로 공유하기
-            </button>
-            <button class="copy-btn" onclick="copyText('https://tozz.kr')" style="margin-top: 8px;">
-                <i class="ri-link"></i> 청첩장 링크 복사하기
-            </button>
-        </div>
-    </section>
-
     <div id="lightbox" class="lightbox">
         <button class="lightbox-close" onclick="closeLightbox()"><i class="ri-close-line"></i></button>
         <div class="swiper lightbox-swiper">
@@ -424,11 +429,14 @@ section{padding:86px 22px;position:relative;text-align:center}
     </footer>
 </div>
 
-<!-- 우측 하단에는 다시 RSVP 버튼 하나만 띄웁니다 -->
+<!-- 플로팅 하단 공유 & RSVP 버튼 -->
+<!-- 점 3개 연결된 네트워크 공유 아이콘(ri-share-line) 적용 -->
+<button class="floating-share" type="button" onclick="shareKakao()" aria-label="청첩장 공유하기">
+    <i class="ri-share-line"></i>
+</button>
 <button class="floating-rsvp" type="button" onclick="document.getElementById('rsvp').scrollIntoView({behavior:'smooth'})">R.S.V.P · 참석 의사 전달하기</button>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-<!-- 아래의 8d75c909b1a880fd946d7962742be972 부분은 꼭 발급받으신 자바스크립트 키로 유지해 주세요! -->
 <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=8d75c909b1a880fd946d7962742be972&libraries=services&autoload=false" onerror="handleKakaoLoadError()"></script>
 <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js"></script>
 
@@ -453,14 +461,11 @@ function startInvitation(){
     const overlay = document.getElementById('start-overlay');
     const mainWrap = document.getElementById('main-wrap');
     
-    // 터치 즉시 숨겨져 있던 메인 화면을 뒤쪽에 준비시킵니다.[cite: 2]
     mainWrap.style.display = 'block';
     
-    // 오프닝 화면이 0.45초 동안 부드럽게 사라지게 효과를 추가합니다.[cite: 2]
     overlay.style.transition = 'opacity 0.45s ease';
     overlay.style.opacity = '0';
     
-    // BGM은 화면을 터치하는 액션과 "동시에" 실행되어야 안 끊기고 재생됩니다.[cite: 2]
     const playPromise = bgm.play();
     if (playPromise !== undefined) {
         playPromise.then(()=>{
@@ -469,12 +474,10 @@ function startInvitation(){
         }).catch(()=>{});
     }
 
-    // 지도와 애니메이션 등 초기화 기능 실행[cite: 2]
     initReveal();
     initCalendar();
     initKakaoMap();
     
-    // 0.45초 뒤, 투명해진 오프닝 화면을 완전히 화면에서 삭제합니다.[cite: 2]
     setTimeout(()=>{
         overlay.style.display = 'none';
     }, 450);
@@ -602,9 +605,8 @@ function closeLightbox() {
 
 window.addEventListener('DOMContentLoaded', initLightbox);
 
-// 카카오톡 SDK가 제대로 불러와졌을 때만 실행되도록 안전망 추가[cite: 2]
 if (typeof Kakao !== 'undefined' && !Kakao.isInitialized()) {
-    Kakao.init('8d75c909b1a880fd946d7962742be972'); // 선생님의 자바스크립트 키
+    Kakao.init('8d75c909b1a880fd946d7962742be972'); 
 }
 
 function shareKakao() {
@@ -613,7 +615,7 @@ function shareKakao() {
         content: {
             title: '김유락 ♥ 김해빈 결혼합니다',
             description: '2026년 10월 24일 (토) 오후 1:30\n대구고산 왕국회관',
-            imageUrl: 'https://tozz.kr/wedding-invitation/my-wedding/img/9.jpg', 
+            imageUrl: 'https://tozz.kr/wedding-invitation/my-wedding/img/5.jpg', 
             link: {
                 mobileWebUrl: 'https://tozz.kr/wedding-invitation/my-wedding/',
                 webUrl: 'https://tozz.kr/wedding-invitation/my-wedding/',
