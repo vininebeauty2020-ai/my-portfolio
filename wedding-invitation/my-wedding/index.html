@@ -75,12 +75,6 @@ section{padding:86px 22px;position:relative;text-align:center}
 /* hero */
 .hero{height:100svh;min-height:620px;padding:0;display:flex;align-items:flex-end;overflow:hidden;background:#ddd}
 .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-/* .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.03) 35%,rgba(25,22,20,.48) 100%)} */
-/* .hero-content{position:relative;z-index:1;width:100%;padding:0 28px 48px;text-align:left;color:#fff}
-.hero-eyebrow{font-size:10px;letter-spacing:.28em;margin-bottom:12px;opacity:.9}
-.hero-names{font-family:'DM Serif Display',serif;font-size:46px;line-height:.98;font-weight:400;letter-spacing:-.02em}
-.hero-names span{display:block}.hero-names .and{font-size:18px;font-family:'Noto Serif KR',serif;margin:8px 0;font-weight:300}
-.hero-date{margin-top:24px;font-size:11px;letter-spacing:.14em} */
 .hero-scroll{position:absolute;right:20px;bottom:48px;z-index:2;writing-mode:vertical-rl;font-size:9px;letter-spacing:.25em;color:#fff;opacity:.8}
 
 /* banner */
@@ -112,27 +106,29 @@ section{padding:86px 22px;position:relative;text-align:center}
 .map-shell{position:relative}.map{width:100%;height:270px;background:#ece9e3;border-radius:2px;overflow:hidden;border:1px solid var(--line)}.map-message{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#918b84;font-size:11px;padding:20px;line-height:1.8;text-align:center;pointer-events:none}.map.loaded+.map-message{display:none}
 .map-error{display:none;margin:8px 0 0;padding:10px;background:#f4eeea;color:#7d665f;font-size:10px;line-height:1.7;text-align:left}.map-error.show{display:block}
 
-/* 지도 버튼 파스텔 톤 및 클래스명 수정 (오류 해결) */
+/* 지도 버튼 */
 .nav-buttons{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:9px}
 .nav-buttons a{display:flex;align-items:center;justify-content:center;height:43px;text-decoration:none;font-size:10px;font-weight:600;border:1px solid transparent;border-radius:2px;transition:opacity .2s}
 .nav-buttons a:active{opacity:0.7}
-.nav-buttons a.map-kakao{background:#fae57c;color:#4b3e0c;} /* 카카오 노란색 파스텔 */
-.nav-buttons a.map-naver{background:#aee4b9;color:#1f4a27;} /* 네이버 초록색 파스텔 */
-.nav-buttons a.map-tmap{background:#b1d5f5;color:#1e3b57;}  /* 티맵 하늘색 파스텔 */
+.nav-buttons a.map-kakao{background:#fae57c;color:#4b3e0c;} 
+.nav-buttons a.map-naver{background:#aee4b9;color:#1f4a27;} 
+.nav-buttons a.map-tmap{background:#b1d5f5;color:#1e3b57;}  
 
 .copy-btn{width:100%;height:42px;margin-top:6px;border:1px solid var(--line);background:transparent;color:#57524c;font-size:10px;cursor:pointer}
 
 /* info */
 .info-stack{display:grid;gap:8px;margin-top:24px;text-align:left}.info-card{padding:19px;background:#fff;border:1px solid var(--line);border-radius:2px}.info-label{font-size:9px;letter-spacing:.16em;color:var(--muted);margin-bottom:7px}.info-title{font-size:15px;font-weight:600;margin-bottom:8px}.info-text{font-size:11px;line-height:1.85;color:#666}.info-highlight{border:1px solid #cbb0aa;background:#fbf7f4}.time-strong{font-size:17px;color:var(--accent-deep);font-weight:600;letter-spacing:.02em}
 
-/* parking - 비율 7:8 수정 */
+/* parking */
 .parking-map{width:100%;aspect-ratio:7/8;object-fit:cover;background:#e8e4dd;border:1px solid var(--line);display:block}.parking-placeholder{display:flex;align-items:center;justify-content:center;min-height:190px;background:#ebe7e0;color:#8b857d;font-size:11px;line-height:1.8;padding:25px;text-align:center}.parking-list{margin:14px 0 0;padding:0;list-style:none;text-align:left}.parking-list li{font-size:11px;line-height:1.8;padding:10px 0;border-bottom:1px solid #ebe6df}.parking-list li:last-child{border-bottom:0}.parking-list b{font-weight:600;color:#444}
 
 /* accounts */
 .account-card{background:#fff;border:1px solid var(--line);padding:4px 18px}
 .account-group{border-bottom:1px solid var(--line)}.account-group:last-child{border-bottom:0}.account-title{display:flex;align-items:center;justify-content:space-between;padding:18px 0;cursor:pointer;font-size:12px;font-weight:600}.account-content{display:none;padding:0 0 12px}.account-content.open{display:block}.account-item{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;background:var(--paper);padding:13px;margin-bottom:7px;font-size:10px}.account-person{font-weight:600;margin-right:7px}.account-number{color:#6c6760}.btn-acc{border:1px solid #d7d0c8;background:#fff;padding:8px 9px;font-size:9px;cursor:pointer}
+.account-phone {font-size:10px; color:#888; margin-top:4px;}
+.account-phone a {text-decoration:none; color:inherit; display:flex; align-items:center; gap:4px;}
 
-/* RSVP 디자인 */
+/* RSVP */
 #rsvp { background: #f8d8d8; padding-bottom: 115px; color: #5e4a4a; }
 #rsvp .section-kicker { color: #d89898; }
 #rsvp .section-title { color: #5e4a4a; }
@@ -152,10 +148,8 @@ section{padding:86px 22px;position:relative;text-align:center}
 .footer{padding:30px 20px 90px;text-align:center;background:var(--white)}.footer-date{font-family:'DM Serif Display',serif;font-size:22px;}
 .footer-small{margin-top:18px;color:#b7b1aa;font-size:10px;letter-spacing:.08em}
 
-/* fixed rsvp */
+/* floating buttons */
 .floating-rsvp{position:fixed;left:50%;bottom:15px;transform:translateX(-50%);z-index:8999;width:min(92%,470px);height:50px;border:1px solid rgba(255,255,255,.55);background:rgba(52,50,47,.94);backdrop-filter:blur(10px);color:#fff;box-shadow:0 8px 30px rgba(0,0,0,.18);font-size:11px;letter-spacing:.08em;cursor:pointer}
-
-/* 새롭게 디자인된 우측 하단 공유버튼 플로팅 */
 .floating-share {
     position: fixed;
     right: max(4%, calc(50% - 240px));
@@ -164,8 +158,8 @@ section{padding:86px 22px;position:relative;text-align:center}
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #ecbaba; /* 연분홍색 */
-    color: #ffffff; /* 흰색 아이콘 */
+    background-color: #ecbaba; 
+    color: #ffffff; 
     border: none;
     box-shadow: 0 4px 15px rgba(236, 186, 186, 0.4);
     display: flex;
@@ -180,7 +174,7 @@ section{padding:86px 22px;position:relative;text-align:center}
 /* reveal animation */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}.reveal.from-left{transform:translateX(-24px)}.reveal.from-right{transform:translateX(24px)}.reveal.visible{opacity:1;transform:none}.stagger>*{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}.stagger.visible>*{opacity:1;transform:none}.stagger.visible>*:nth-child(2){transition-delay:.07s}.stagger.visible>*:nth-child(3){transition-delay:.14s}.stagger.visible>*:nth-child(4){transition-delay:.21s}.stagger.visible>*:nth-child(5){transition-delay:.28s}.stagger.visible>*:nth-child(6){transition-delay:.35s}
 
-/* 라이트박스 (확대 갤러리) CSS */
+/* lightbox */
 .lightbox { position: fixed; inset: 0; background: rgba(15, 14, 13, 0.95); z-index: 999999; display: none; flex-direction: column; justify-content: center; opacity: 0; transition: opacity 0.3s ease; }
 .lightbox.show { display: flex; opacity: 1; }
 .lightbox-close { position: absolute; top: 20px; right: 20px; background: none; border: none; color: #fff; font-size: 34px; z-index: 2; cursor: pointer; padding: 10px; }
@@ -215,11 +209,6 @@ section{padding:86px 22px;position:relative;text-align:center}
 
     <section class="hero">
         <img src="./img/main.gif" alt="신랑 신부 메인 사진">
-        <!-- <div class="hero-content">
-            <div class="hero-eyebrow">WE ARE GETTING MARRIED</div>
-            <div class="hero-names"><span>Yurak</span><span class="and">&amp;</span><span>Haebin</span></div>
-            <div class="hero-date">2026. 10. 24 SAT 13:30 · 대구고산 왕국회관</div>
-        </div> -->
         <div class="hero-scroll">SCROLL</div>
     </section>
 
@@ -297,6 +286,7 @@ section{padding:86px 22px;position:relative;text-align:center}
         </div>
     </section>
 
+    <!-- 예식장 Section (수정: 대중교통 정보 바로 배치) -->
     <section class="reveal" id="location">
         <div class="section-kicker">Ceremony</div>
         <h2 class="section-title">Location</h2>
@@ -311,7 +301,6 @@ section{padding:86px 22px;position:relative;text-align:center}
             <div class="map-message" id="map-message">카카오 지도를 불러오는 중입니다.</div>
             <div class="map-error" id="map-error"></div>
         </div>
-        <!-- 지도 버튼 클래스명 수정완료 -->
         <div class="nav-buttons">
             <a href="https://map.kakao.com/link/search/대구광역시 수성구 시지로 50-5" target="_blank" rel="noopener" class="map-kakao">카카오맵</a>
             <a href="https://map.naver.com/v5/search/대구광역시 수성구 시지로 50-5" target="_blank" rel="noopener" class="map-naver">네이버지도</a>
@@ -320,6 +309,20 @@ section{padding:86px 22px;position:relative;text-align:center}
         <button class="copy-btn" type="button" onclick="copyText('대구광역시 수성구 시지로 50-5')">주소 복사하기</button>
 
         <div class="info-stack stagger visible">
+            <div class="info-card">
+                <div class="info-label">PUBLIC TRANSPORT</div>
+                <div class="info-title">대중교통</div>
+                <div class="info-text">지하철 2호선 신매역 2번 출구 · 도보 약 9분<br>고산2동행정복지센터 정류장 하차 · 도보 약 9분<br>100, 100-1, 309, 349, 399, 509, 724, 937, 990, 수성2, 급행10</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 연회장 Section (새로 추가) -->
+    <section class="reveal" id="reception">
+        <div class="section-kicker">Reception</div>
+        <h2 class="section-title">Dining <em>Hall</em></h2>
+        
+        <div class="info-stack stagger visible" style="margin-top:0; margin-bottom: 22px;">
             <div class="info-card info-highlight">
                 <div class="info-label">RECEPTION / 식사</div>
                 <div class="info-title">채담은</div>
@@ -330,12 +333,19 @@ section{padding:86px 22px;position:relative;text-align:center}
                     <span style="color:#8e625e">※ 축의대는 식당에 비치될 예정입니다.</span>
                 </div>
             </div>
-            <div class="info-card">
-                <div class="info-label">PUBLIC TRANSPORT</div>
-                <div class="info-title">대중교통</div>
-                <div class="info-text">지하철 2호선 신매역 2번 출구 · 도보 약 9분<br>고산2동행정복지센터 정류장 하차 · 도보 약 9분<br>100, 100-1, 309, 349, 399, 509, 724, 937, 990, 수성2, 급행10</div>
-            </div>
         </div>
+
+        <div class="map-shell reveal">
+            <div id="map-restaurant" class="map"></div>
+            <div class="map-message" id="map-message-rest">카카오 지도를 불러오는 중입니다.</div>
+            <div class="map-error" id="map-error-rest"></div>
+        </div>
+        <div class="nav-buttons">
+            <a href="https://map.kakao.com/link/search/대구 수성구 노변로 75-4" target="_blank" rel="noopener" class="map-kakao">카카오맵</a>
+            <a href="https://map.naver.com/v5/search/대구 수성구 노변로 75-4" target="_blank" rel="noopener" class="map-naver">네이버지도</a>
+            <a href="tmap://search?name=대구 수성구 노변로 75-4" class="map-tmap">티맵</a>
+        </div>
+        <button class="copy-btn" type="button" onclick="copyText('대구 수성구 노변로 75-4')">주소 복사하기</button>
     </section>
 
     <section class="soft reveal" id="parking">
@@ -354,22 +364,69 @@ section{padding:86px 22px;position:relative;text-align:center}
         </div>
     </section>
 
+    <!-- 계좌번호 Section (수정: 3명씩 각각 계좌 및 연락처 추가) -->
     <section class="reveal" id="account">
         <div class="section-kicker">With Love</div>
         <h2 class="section-title">For Your <em>Heart</em></h2>
         <div class="account-card">
+            <!-- 신랑측 계좌 -->
             <div class="account-group">
-                <div class="account-title" onclick="toggleAccount('groom-acc',this)">신랑측 계좌번호 <i class="ri-add-line"></i></div>
+                <div class="account-title" onclick="toggleAccount('groom-acc',this)">신랑측 마음 전하실 곳 <i class="ri-add-line"></i></div>
                 <div class="account-content" id="groom-acc">
-                    <div class="account-item"><div><span class="account-person">신랑 김유락</span><span class="account-number">농협 123-4567-8901</span></div><button class="btn-acc" onclick="copyText('12345678901')">복사</button></div>
-                    <div class="account-item"><div><span class="account-person">신랑측 가족</span><span class="account-number">계좌번호를 입력해주세요</span></div><button class="btn-acc" onclick="copyText('계좌번호를 입력해주세요')">복사</button></div>
+                    <div class="account-item">
+                        <div>
+                            <span class="account-person">신랑 아버지 김재룡</span>
+                            <span class="account-number">은행명 000-0000-0000</span>
+                            <div class="account-phone"><a href="tel:010-0000-0000"><i class="ri-phone-line"></i> 010-0000-0000</a></div>
+                        </div>
+                        <button class="btn-acc" onclick="copyText('00000000000')">복사</button>
+                    </div>
+                    <div class="account-item">
+                        <div>
+                            <span class="account-person">신랑 어머니 이봉호</span>
+                            <span class="account-number">은행명 000-0000-0000</span>
+                            <div class="account-phone"><a href="tel:010-0000-0000"><i class="ri-phone-line"></i> 010-0000-0000</a></div>
+                        </div>
+                        <button class="btn-acc" onclick="copyText('00000000000')">복사</button>
+                    </div>
+                    <div class="account-item">
+                        <div>
+                            <span class="account-person">신랑 김유락</span>
+                            <span class="account-number">농협 123-4567-8901</span>
+                            <div class="account-phone"><a href="tel:010-0000-0000"><i class="ri-phone-line"></i> 010-0000-0000</a></div>
+                        </div>
+                        <button class="btn-acc" onclick="copyText('12345678901')">복사</button>
+                    </div>
                 </div>
             </div>
+            <!-- 신부측 계좌 -->
             <div class="account-group">
-                <div class="account-title" onclick="toggleAccount('bride-acc',this)">신부측 계좌번호 <i class="ri-add-line"></i></div>
+                <div class="account-title" onclick="toggleAccount('bride-acc',this)">신부측 마음 전하실 곳 <i class="ri-add-line"></i></div>
                 <div class="account-content" id="bride-acc">
-                    <div class="account-item"><div><span class="account-person">신부 김해빈</span><span class="account-number">기업 777-8888-9999</span></div><button class="btn-acc" onclick="copyText('77788889999')">복사</button></div>
-                    <div class="account-item"><div><span class="account-person">신부측 가족</span><span class="account-number">계좌번호를 입력해주세요</span></div><button class="btn-acc" onclick="copyText('계좌번호를 입력해주세요')">복사</button></div>
+                    <div class="account-item">
+                        <div>
+                            <span class="account-person">신부 아버지 김성환</span>
+                            <span class="account-number">은행명 000-0000-0000</span>
+                            <div class="account-phone"><a href="tel:010-0000-0000"><i class="ri-phone-line"></i> 010-0000-0000</a></div>
+                        </div>
+                        <button class="btn-acc" onclick="copyText('00000000000')">복사</button>
+                    </div>
+                    <div class="account-item">
+                        <div>
+                            <span class="account-person">신부 어머니 최수진</span>
+                            <span class="account-number">은행명 000-0000-0000</span>
+                            <div class="account-phone"><a href="tel:010-0000-0000"><i class="ri-phone-line"></i> 010-0000-0000</a></div>
+                        </div>
+                        <button class="btn-acc" onclick="copyText('00000000000')">복사</button>
+                    </div>
+                    <div class="account-item">
+                        <div>
+                            <span class="account-person">신부 김해빈</span>
+                            <span class="account-number">기업 777-8888-9999</span>
+                            <div class="account-phone"><a href="tel:010-0000-0000"><i class="ri-phone-line"></i> 010-0000-0000</a></div>
+                        </div>
+                        <button class="btn-acc" onclick="copyText('77788889999')">복사</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -429,8 +486,6 @@ section{padding:86px 22px;position:relative;text-align:center}
     </footer>
 </div>
 
-<!-- 플로팅 하단 공유 & RSVP 버튼 -->
-<!-- 점 3개 연결된 네트워크 공유 아이콘(ri-share-line) 적용 -->
 <button class="floating-share" type="button" onclick="shareKakao()" aria-label="청첩장 공유하기">
     <i class="ri-share-line"></i>
 </button>
@@ -514,27 +569,51 @@ function initCalendar(){
     el.innerHTML=html;
 }
 
+// 수정: 두 개의 지도를 렌더링하기 위해 기능 변경
 function initKakaoMap(){
     const message=document.getElementById('map-message');
     const error=document.getElementById('map-error');
+    const messageRest=document.getElementById('map-message-rest');
+
     if(typeof kakao==='undefined' || !kakao.maps){
         showMapError('카카오 지도를 불러오지 못했습니다.<br><br><b>💡 혹시 내 컴퓨터에서 더블클릭해서 실행하셨나요?</b><br>서버(tozz.kr)에 업로드한 뒤 접속하시면 지도가 정상적으로 나타납니다!');
         return;
     }
     try{
         kakao.maps.load(function(){
+            const geocoder=new kakao.maps.services.Geocoder();
+
+            // 1. 본식장 지도
             const container=document.getElementById('map');
             const option={center:new kakao.maps.LatLng(WEDDING.lat,WEDDING.lng),level:3};
             const map=new kakao.maps.Map(container,option);
-            const geocoder=new kakao.maps.services.Geocoder();
+            
             geocoder.addressSearch(WEDDING.address,function(result,status){
                 let coords=new kakao.maps.LatLng(WEDDING.lat,WEDDING.lng);
                 if(status===kakao.maps.services.Status.OK){coords=new kakao.maps.LatLng(result[0].y,result[0].x);}
                 const marker=new kakao.maps.Marker({map:map,position:coords});
                 const info=new kakao.maps.InfoWindow({content:'<div style="width:150px;text-align:center;padding:7px 0;font-size:12px;font-weight:600;color:#333;">대구고산 왕국회관</div>'});                     
-                 info.open(map,marker); map.setCenter(coords); map.relayout();
+                info.open(map,marker); map.setCenter(coords); map.relayout();
                 container.classList.add('loaded'); message.style.display='none';
             });
+
+            // 2. 연회장 지도
+            const containerRest=document.getElementById('map-restaurant');
+            if(containerRest) {
+                const optionRest={center:new kakao.maps.LatLng(35.840, 128.697),level:3}; // 초기 중심 좌표 대략 지정
+                const mapRest=new kakao.maps.Map(containerRest,optionRest);
+
+                geocoder.addressSearch(WEDDING.restaurantAddress,function(result,status){
+                    if(status===kakao.maps.services.Status.OK){
+                        let coordsRest=new kakao.maps.LatLng(result[0].y,result[0].x);
+                        const markerRest=new kakao.maps.Marker({map:mapRest,position:coordsRest});
+                        const infoRest=new kakao.maps.InfoWindow({content:'<div style="width:150px;text-align:center;padding:7px 0;font-size:12px;font-weight:600;color:#333;">채담은</div>'});                     
+                        infoRest.open(mapRest,markerRest); mapRest.setCenter(coordsRest); mapRest.relayout();
+                        containerRest.classList.add('loaded'); 
+                        if(messageRest) messageRest.style.display='none';
+                    }
+                });
+            }
         });
     }catch(e){showMapError('카카오 지도 초기화에 실패했습니다. 서버 업로드 여부를 확인해주세요.');}
 }
@@ -615,7 +694,7 @@ function shareKakao() {
         content: {
             title: '김유락 ♥ 김해빈 결혼합니다',
             description: '2026년 10월 24일 (토) 오후 1:30\n대구고산 왕국회관',
-            imageUrl: 'https://tozz.kr/wedding-invitation/my-wedding/img/2.jpg', 
+            imageUrl: 'https://tozz.kr/wedding-invitation/my-wedding/img/14.jpg', 
             link: {
                 mobileWebUrl: 'https://tozz.kr/wedding-invitation/my-wedding/',
                 webUrl: 'https://tozz.kr/wedding-invitation/my-wedding/',
