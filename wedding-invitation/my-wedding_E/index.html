@@ -633,7 +633,7 @@ function initKakaoMap(){
                     if(status===kakao.maps.services.Status.OK){
                         let coordsRest=new kakao.maps.LatLng(result[0].y,result[0].x);
                         const markerRest=new kakao.maps.Marker({map:mapRest,position:coordsRest});
-                        const infoRest=new kakao.maps.InfoWindow({content:'<div style="width:150px;text-align:center;padding:7px 0;font-size:12px;font-weight:600;color:#333;">채담은</div>'});                     
+                        const infoRest=new kakao.maps.InfoWindow({content:'<div style="width:150px;text-align:center;padding:7px 0;font-size:12px;font-weight:600;color:#333;">애슐리퀸즈 NC경산점</div>'});                     
                         infoRest.open(mapRest,markerRest); mapRest.setCenter(coordsRest); mapRest.relayout();
                         containerRest.classList.add('loaded'); 
                         if(messageRest) messageRest.style.display='none';
@@ -719,7 +719,7 @@ function shareKakao() {
         objectType: 'feed',
         content: {
             title: '김유락 ♥ 김해빈 결혼합니다',
-            description: '2026년 10월 24일 (토) 오후 1:30\n대구고산 왕국회관',
+            description: '2026년 10월 24일 (토) 오후 1:30\n대구고산 왕국회관, 애슐리퀸즈',
             imageUrl: 'https://tozz.kr/wedding-invitation/my-wedding/img/14.jpg', 
             link: {
                 mobileWebUrl: 'https://tozz.kr/wedding-invitation/my-wedding/',
