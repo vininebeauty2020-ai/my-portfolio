@@ -127,12 +127,6 @@ section{padding:86px 22px;position:relative;text-align:center}
 .zoom-btn:active{opacity:0.7}
 .zoom-btn i{margin-right:6px;font-size:16px;}
 
-/* accounts */
-.account-card{background:#fff;border:1px solid var(--line);padding:4px 18px}
-.account-group{border-bottom:1px solid var(--line)}.account-group:last-child{border-bottom:0}.account-title{display:flex;align-items:center;justify-content:space-between;padding:18px 0;cursor:pointer;font-size:12px;font-weight:600}.account-content{display:none;padding:0 0 12px}.account-content.open{display:block}.account-item{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;background:var(--paper);padding:13px;margin-bottom:7px;font-size:10px}.account-person{font-weight:600;margin-right:7px}.account-number{color:#6c6760}.btn-acc{border:1px solid #d7d0c8;background:#fff;padding:8px 9px;font-size:9px;cursor:pointer}
-.account-phone {font-size:10px; color:#888; margin-top:4px;}
-.account-phone a {text-decoration:none; color:inherit; display:flex; align-items:center; gap:4px;}
-
 /* RSVP */
 #rsvp { background: #f8d8d8; padding-bottom: 115px; color: #5e4a4a; }
 #rsvp .section-kicker { color: #d89898; }
@@ -290,84 +284,6 @@ section{padding:86px 22px;position:relative;text-align:center}
             <div class="gallery-item"><img src="./img/21.jpg" alt="웨딩 사진 21"></div>
         </div>
     </section>
-<!-- 
-    예식장 Section (수정: 대중교통 정보 바로 배치)
-    <section class="reveal" id="location">
-        <div class="section-kicker">Ceremony</div>
-        <h2 class="section-title">Location</h2>
-        <div class="location-lead">
-            <div class="location-name">대구고산 왕국회관</div>
-            <div class="location-time">예식 13:30</div>
-            <div class="location-address">대구광역시 수성구 시지로 50-5</div>
-        </div>
-
-        <div class="map-shell reveal">
-            <div id="map" class="map"></div>
-            <div class="map-message" id="map-message">카카오 지도를 불러오는 중입니다.</div>
-            <div class="map-error" id="map-error"></div>
-        </div>
-        <div class="nav-buttons">
-            <a href="https://map.kakao.com/link/search/대구광역시 수성구 시지로 50-5" target="_blank" rel="noopener" class="map-kakao">카카오맵</a>
-            <a href="https://map.naver.com/v5/search/대구광역시 수성구 시지로 50-5" target="_blank" rel="noopener" class="map-naver">네이버지도</a>
-            <a href="tmap://search?name=대구광역시 수성구 시지로 50-5" class="map-tmap">티맵</a>
-        </div>
-        <button class="copy-btn" type="button" onclick="copyText('대구광역시 수성구 시지로 50-5')">주소 복사하기</button>
-
-        <div class="info-stack stagger visible">
-            <div class="info-card">
-                <div class="info-label">PUBLIC TRANSPORT</div>
-                <div class="info-title">대중교통</div>
-                <div class="info-text">지하철 2호선 신매역 2번 출구 · 도보 약 9분<br>고산2동행정복지센터 정류장 하차 · 도보 약 9분<br>100, 100-1, 309, 349, 399, 509, 724, 937, 990, 수성2, 급행10</div>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- 연회장 Section (새로 추가)
-    <section class="reveal" id="reception">
-        <div class="section-kicker">Reception</div>
-        <h2 class="section-title">Dining <em>Hall</em></h2>
-        
-        <div class="info-stack stagger visible" style="margin-top:0; margin-bottom: 22px;">
-            <div class="info-card info-highlight">
-                <div class="info-label">RECEPTION / 식사</div>
-                <div class="info-title">채담은</div>
-                <div class="info-text">
-                    <span class="time-strong">11:30 ~ 13:30</span><br>
-                    대구 수성구 노변로 75-4<br>
-                    <b>※ 식당 이용시간이 예식장과 다르니 꼭 확인해주세요.</b><br>
-                    <span style="color:#8e625e">※ 축의대는 식당에 비치될 예정입니다.</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="map-shell reveal">
-            <div id="map-restaurant" class="map"></div>
-            <div class="map-message" id="map-message-rest">카카오 지도를 불러오는 중입니다.</div>
-            <div class="map-error" id="map-error-rest"></div>
-        </div>
-        <div class="nav-buttons">
-            <a href="https://map.kakao.com/link/search/대구 수성구 노변로 75-4" target="_blank" rel="noopener" class="map-kakao">카카오맵</a>
-            <a href="https://map.naver.com/v5/search/대구 수성구 노변로 75-4" target="_blank" rel="noopener" class="map-naver">네이버지도</a>
-            <a href="tmap://search?name=대구 수성구 노변로 75-4" class="map-tmap">티맵</a>
-        </div>
-        <button class="copy-btn" type="button" onclick="copyText('대구 수성구 노변로 75-4')">주소 복사하기</button>
-    </section> -->
-
-    <!-- <section class="soft reveal" id="parking">
-        <div class="section-kicker">Parking</div>
-        <h2 class="section-title">Parking <em>Guide</em></h2>
-        <div class="info-card" style="text-align:left;padding:0;overflow:hidden">
-            <img class="parking-map" src="./img/parking-map.jpg" alt="주차 약도" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div class="parking-placeholder" style="display:none">주차 약도 이미지를<br><b>./img/parking-map.jpg</b> 이름으로 넣어주세요.</div>
-            <div style="padding:18px 18px 6px">
-                <div class="info-label">PARKING INFORMATION</div>
-                <ul class="parking-list">
-                    <li><b>주차 위치</b> · 고산2동 커뮤니티센터 인근, 노변중학교/늘봄파파 인근, 아진공원 인근 등 약도를 참조해 주세요.</li>
-                    <li><b>TIP</b> · 예식장과 식당의 주차 위치가 다르다면 각각 구분해서 표시하는 것을 추천합니다.</li>
-                </ul>
-            </div>
-        </div>
-    </section> -->
 
     <!-- 줌(Zoom) 생중계 Section 추가 -->
     <section class="reveal" id="zoom">
@@ -390,93 +306,6 @@ section{padding:86px 22px;position:relative;text-align:center}
         </div>
     </section>
 
-    <!-- 계좌번호 Section (수정: 3명씩 각각 계좌 및 연락처 추가) -->
-    <section class="reveal" id="account">
-        <div class="section-kicker">With Love</div>
-        <h2 class="section-title">For Your <em>Heart</em></h2>
-        <div class="account-card">
-            <!-- 신랑측 계좌 -->
-            <div class="account-group">
-                <div class="account-title" onclick="toggleAccount('groom-acc',this)">신랑측 마음 전하실 곳 <i class="ri-add-line"></i></div>
-                <div class="account-content" id="groom-acc">
-                    <div class="account-item">
-                        <div>
-                            <span class="account-person">신랑 아버지 김재룡</span>
-                            <span class="account-number">은행명 000-0000-0000</span>
-                            <div class="account-phone"><a href="tel:010-0000-0000"><i class="ri-phone-line"></i> 010-0000-0000</a></div>
-                        </div>
-                        <button class="btn-acc" onclick="copyText('00000000000')">복사</button>
-                    </div>
-                    
-                    <div class="account-item">
-                        <div>
-                            <span class="account-person">신랑 김유락</span>
-                            <span class="account-number">농협 123-4567-8901</span>
-                            <div class="account-phone"><a href="tel:010-0000-0000"><i class="ri-phone-line"></i> 010-0000-0000</a></div>
-                        </div>
-                        <button class="btn-acc" onclick="copyText('12345678901')">복사</button>
-                    </div>
-                </div>
-            </div>
-            <!-- 신부측 계좌 -->
-            <div class="account-group">
-                <div class="account-title" onclick="toggleAccount('bride-acc',this)">신부측 마음 전하실 곳 <i class="ri-add-line"></i></div>
-                <div class="account-content" id="bride-acc">
-                    <div class="account-item">
-                        <div>
-                            <span class="account-person">신부 아버지 김성환</span>
-                            <span class="account-number">국민 010-3006-4259</span>
-                            <div class="account-phone"><a href="tel:010-3006-4259"><i class="ri-phone-line"></i> 010-3006-4259</a></div>
-                        </div>
-                        <button class="btn-acc" onclick="copyText('010-3006-4259')">복사</button>
-                    </div>
-                    <div class="account-item">
-                        
-                    <div class="account-item">
-                        <div>
-                            <span class="account-person">신부 김해빈</span>
-                            <span class="account-number">토스 1000-3364-5616</span>
-                            <div class="account-phone"><a href="tel:010-3386-4259"><i class="ri-phone-line"></i> 010-3386-4259</a></div>
-                        </div>
-                        <button class="btn-acc" onclick="copyText('1000-3364-5616')">복사</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- <section class="rsvp-section reveal" id="rsvp">
-        <div class="section-kicker">Please Reply</div>
-        <h2 class="section-title">R.S.V.P</h2>
-        <div class="rsvp-box">
-            <div class="rsvp-title">참석 의사를 알려주세요.</div>
-            <p>원활한 예식과 식사 준비를 위해<br>참석 여부를 미리 알려주시면 감사하겠습니다.</p>
-            <form class="rsvp-form" id="rsvpForm" onsubmit="submitRSVP(event)">
-                <input type="text" id="rsvp-name" name="name" placeholder="성함" autocomplete="name" required>
-                <div class="row">
-                    <select id="rsvp-side" name="side" required>
-                        <option value="" disabled selected>어느 쪽 하객인가요?</option>
-                        <option value="신랑측">신랑측</option>
-                        <option value="신부측">신부측</option>
-                    </select>
-                    <select id="rsvp-attend" name="attend" required>
-                        <option value="" disabled selected>참석 여부</option>
-                        <option value="참석">참석</option>
-                        <option value="불참">불참</option>
-                    </select>
-                </div>
-                <select id="rsvp-meal" name="meal" required>
-                    <option value="" disabled selected>식사 여부</option>
-                    <option value="식사 예정">식사 예정</option>
-                    <option value="식사하지 않음">식사하지 않음</option>
-                </select>
-                <input type="number" id="rsvp-guests" name="guests" min="0" max="10" value="1" placeholder="식사 포함 인원">
-                <input type="tel" id="rsvp-phone" name="phone" placeholder="연락처 (선택)" autocomplete="tel">
-                <button class="rsvp-submit" id="rsvp-submit" type="submit">참석 의사 전달하기</button>
-                <div class="rsvp-status" id="rsvp-status"></div>
-            </form>
-        </div>
-    </section> -->
 
     <div class="banner-wrap reveal">
         <img class="banner" src="./img/img2.JPG" alt="웨딩 이미지 2">
@@ -633,15 +462,6 @@ function initKakaoMap(){
 
 function handleKakaoLoadError(){showMapError('카카오 지도 SDK를 불러오지 못했습니다.<br><br><b>💡 혹시 로컬 PC 환경(file://)이신가요?</b><br>카카오 정책상 서버(tozz.kr)에 업로드해야 지도가 보입니다.');}
 function showMapError(msg){const error=document.getElementById('map-error');if(error){error.innerHTML=msg;error.classList.add('show');}document.getElementById('map-message').style.display='none';}
-
-function copyText(text){
-    navigator.clipboard?.writeText(text).then(()=>alert('복사되었습니다.')).catch(()=>{const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();alert('복사되었습니다.');});
-}
-
-function toggleAccount(id,btn){
-    const content=document.getElementById(id), open=content.classList.toggle('open');
-    btn.querySelector('i').className=open?'ri-subtract-line':'ri-add-line';
-}
 
 async function submitRSVP(e){
     e.preventDefault();
