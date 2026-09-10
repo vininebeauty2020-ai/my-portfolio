@@ -129,9 +129,19 @@ section{padding:86px 22px;position:relative;text-align:center}
 
 /* accounts */
 .account-card{background:#fff;border:1px solid var(--line);padding:4px 18px}
-.account-group{border-bottom:1px solid var(--line)}.account-group:last-child{border-bottom:0}.account-title{display:flex;align-items:center;justify-content:space-between;padding:18px 0;cursor:pointer;font-size:12px;font-weight:600}.account-content{display:none;padding:0 0 12px}.account-content.open{display:block}.account-item{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;background:var(--paper);padding:13px;margin-bottom:7px;font-size:10px}.account-person{font-weight:600;margin-right:7px}.account-number{color:#6c6760}.btn-acc{border:1px solid #d7d0c8;background:#fff;padding:8px 9px;font-size:9px;cursor:pointer}
-.account-phone {font-size:10px; color:#888; margin-top:4px;}
-.account-phone a {text-decoration:none; color:inherit; display:flex; align-items:center; gap:4px;}
+.account-group{border-bottom:1px solid var(--line)}.account-group:last-child{border-bottom:0}
+.account-title{display:flex;align-items:center;justify-content:space-between;padding:19px 0;cursor:pointer;font-size:14px;font-weight:600;letter-spacing:-.2px;color:#393632}
+.account-title i{font-size:17px;color:#918a82}
+.account-content{display:none;padding:1px 0 13px}.account-content.open{display:block}
+.account-item{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;background:var(--paper);padding:16px 14px;margin-bottom:7px;font-size:12px;border:1px solid rgba(120,110,100,.08);border-radius:3px}
+.account-item:last-child{margin-bottom:0}
+.account-person{display:block;text-align:left;font-size:14px;font-weight:600;color:#403c37;margin:0 0 5px;letter-spacing:-.2px}
+.account-number{display:block;text-align:left;font-size:13px;line-height:1.5;color:#625c55;letter-spacing:-.1px;word-break:break-all}
+.account-phone{font-size:11px;color:#99928a;margin-top:6px;text-align:left}
+.account-phone a{text-decoration:none;color:inherit;display:flex;align-items:center;gap:4px}
+.account-phone i{font-size:13px}
+.btn-acc{min-width:44px;height:33px;border:1px solid #d7d0c8;background:#fff;color:#625d57;padding:0 10px;border-radius:3px;font-size:11px;font-weight:500;letter-spacing:-.2px;cursor:pointer}
+.btn-acc:active{background:#f3eee9;transform:scale(.96)}
 
 /* RSVP */
 #rsvp { background: #f8d8d8; padding-bottom: 115px; color: #5e4a4a; }
@@ -380,11 +390,11 @@ section{padding:86px 22px;position:relative;text-align:center}
                 먼 걸음이 어려우시거나 참석하지 못하시는 분들을 위해<br>
                 예식 당일 Zoom을 통해 생중계를 진행합니다.<br><br>
                 <b>일시 : 2026년 10월 24일 (토) 오후 1:30</b><br><br>
-                <b>회의 ID : </b> 000 000 0000<br>
-                <b>비밀번호 : </b> 0000
+                <b>회의 ID : </b> 642 642 1914<br>
+                <b>비밀번호 : </b> 191435
             </div>
             <!-- 실제 줌 링크를 아래 href 안에 넣어주세요 -->
-            <a href="여기에_줌_링크_입력" target="_blank" rel="noopener" class="zoom-btn">
+            <a href="https://us02web.zoom.us/j/6426421914?pwd=WTZ1Zk9LbXpWdWR6SFJJU2lWVVRvUT09" target="_blank" rel="noopener" class="zoom-btn">
                 <i class="ri-video-chat-line"></i> 줌(Zoom) 바로 가기
             </a>
         </div>
@@ -402,19 +412,19 @@ section{padding:86px 22px;position:relative;text-align:center}
                     <div class="account-item">
                         <div>
                             <span class="account-person">신랑 아버지 김재룡</span>
-                            <span class="account-number">은행명 000-0000-0000</span>
-                            <div class="account-phone"><a href="tel:010-0000-0000"><i class="ri-phone-line"></i> 010-0000-0000</a></div>
+                            <span class="account-number">하나 622-049621-00108</span>
+                            <div class="account-phone"><a href="tel:010-2390-6436"><i class="ri-phone-line"></i> 010-2390-6436</a></div>
                         </div>
-                        <button class="btn-acc" onclick="copyText('00000000000')">복사</button>
+                        <button class="btn-acc" onclick="copyText('622-049621-00108')">복사</button>
                     </div>
                     
                     <div class="account-item">
                         <div>
                             <span class="account-person">신랑 김유락</span>
-                            <span class="account-number">농협 123-4567-8901</span>
-                            <div class="account-phone"><a href="tel:010-0000-0000"><i class="ri-phone-line"></i> 010-0000-0000</a></div>
+                            <span class="account-number">우리 1002-766-404514</span>
+                            <div class="account-phone"><a href="tel:010-5508-6436"><i class="ri-phone-line"></i> 010-5508-6436</a></div>
                         </div>
-                        <button class="btn-acc" onclick="copyText('12345678901')">복사</button>
+                        <button class="btn-acc" onclick="copyText('1002-766-404514')">복사</button>
                     </div>
                 </div>
             </div>
@@ -478,7 +488,7 @@ section{padding:86px 22px;position:relative;text-align:center}
     </section>
 
     <div class="banner-wrap reveal">
-        <img class="banner" src="./img/img2.JPG" alt="웨딩 이미지 2">
+        <img class="banner" src="./img/img2.jpg" alt="웨딩 이미지 2">
     </div>
 
     <div id="lightbox" class="lightbox">
@@ -638,7 +648,10 @@ function copyText(text){
 }
 
 function toggleAccount(id,btn){
-    const content=document.getElementById(id), open=content.classList.toggle('open');
+    const content=document.getElementById(id);
+    const open=content.classList.toggle('open');
+
+    btn.classList.toggle('active',open);
     btn.querySelector('i').className=open?'ri-subtract-line':'ri-add-line';
 }
 

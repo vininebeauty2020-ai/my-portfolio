@@ -129,9 +129,19 @@ section{padding:86px 22px;position:relative;text-align:center}
 
 /* accounts */
 .account-card{background:#fff;border:1px solid var(--line);padding:4px 18px}
-.account-group{border-bottom:1px solid var(--line)}.account-group:last-child{border-bottom:0}.account-title{display:flex;align-items:center;justify-content:space-between;padding:18px 0;cursor:pointer;font-size:12px;font-weight:600}.account-content{display:none;padding:0 0 12px}.account-content.open{display:block}.account-item{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;background:var(--paper);padding:13px;margin-bottom:7px;font-size:10px}.account-person{font-weight:600;margin-right:7px}.account-number{color:#6c6760}.btn-acc{border:1px solid #d7d0c8;background:#fff;padding:8px 9px;font-size:9px;cursor:pointer}
-.account-phone {font-size:10px; color:#888; margin-top:4px;}
-.account-phone a {text-decoration:none; color:inherit; display:flex; align-items:center; gap:4px;}
+.account-group{border-bottom:1px solid var(--line)}.account-group:last-child{border-bottom:0}
+.account-title{display:flex;align-items:center;justify-content:space-between;padding:19px 0;cursor:pointer;font-size:14px;font-weight:600;letter-spacing:-.2px;color:#393632}
+.account-title i{font-size:17px;color:#918a82}
+.account-content{display:none;padding:1px 0 13px}.account-content.open{display:block}
+.account-item{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;background:var(--paper);padding:16px 14px;margin-bottom:7px;font-size:12px;border:1px solid rgba(120,110,100,.08);border-radius:3px}
+.account-item:last-child{margin-bottom:0}
+.account-person{display:block;text-align:left;font-size:14px;font-weight:600;color:#403c37;margin:0 0 5px;letter-spacing:-.2px}
+.account-number{display:block;text-align:left;font-size:13px;line-height:1.5;color:#625c55;letter-spacing:-.1px;word-break:break-all}
+.account-phone{font-size:11px;color:#99928a;margin-top:6px;text-align:left}
+.account-phone a{text-decoration:none;color:inherit;display:flex;align-items:center;gap:4px}
+.account-phone i{font-size:13px}
+.btn-acc{min-width:44px;height:33px;border:1px solid #d7d0c8;background:#fff;color:#625d57;padding:0 10px;border-radius:3px;font-size:11px;font-weight:500;letter-spacing:-.2px;cursor:pointer}
+.btn-acc:active{background:#f3eee9;transform:scale(.96)}
 
 /* RSVP */
 #rsvp { background: #f8d8d8; padding-bottom: 115px; color: #5e4a4a; }
@@ -405,7 +415,7 @@ section{padding:86px 22px;position:relative;text-align:center}
                             <span class="account-number">하나 622-049621-00108</span>
                             <div class="account-phone"><a href="tel:010-2390-6436"><i class="ri-phone-line"></i> 010-2390-6436</a></div>
                         </div>
-                        <button class="btn-acc" onclick="copyText('622-049621-00108')">계좌번호 복사</button>
+                        <button class="btn-acc" onclick="copyText('622-049621-00108')">복사</button>
                     </div>
                     
                     <div class="account-item">
@@ -478,7 +488,7 @@ section{padding:86px 22px;position:relative;text-align:center}
     </section>
 
     <div class="banner-wrap reveal">
-        <img class="banner" src="./img/img2.JPG" alt="웨딩 이미지 2">
+        <img class="banner" src="./img/img2.jpg" alt="웨딩 이미지 2">
     </div>
 
     <div id="lightbox" class="lightbox">
@@ -638,7 +648,10 @@ function copyText(text){
 }
 
 function toggleAccount(id,btn){
-    const content=document.getElementById(id), open=content.classList.toggle('open');
+    const content=document.getElementById(id);
+    const open=content.classList.toggle('open');
+
+    btn.classList.toggle('active',open);
     btn.querySelector('i').className=open?'ri-subtract-line':'ri-add-line';
 }
 
